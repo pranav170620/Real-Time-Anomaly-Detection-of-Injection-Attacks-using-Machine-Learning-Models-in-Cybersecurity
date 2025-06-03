@@ -1,0 +1,501 @@
+Query ID,Query Text,User ID,Timestamp,Query Type,Anomaly Score,Risk Level,Detection Outcome
+1,SELECT * FROM customers WHERE country = 'USA',133,2024-08-04 12:34:08,safe,0.4,Low,Allowed
+2,SELECT * FROM orders WHERE order_id = 102,109,2024-06-19 00:52:47,safe,0.4,Low,Allowed
+3,SELECT * FROM users WHERE email = '' OR 1=1,141,2024-03-13 05:40:49,vulnerable,7.8,Medium,Blocked
+4,DELETE FROM users WHERE id = 2,162,2024-02-10 11:52:07,safe,0.3,Low,Allowed
+5,SELECT * FROM users WHERE id = '1' OR '1' = '1',139,2024-07-23 16:58:47,highly vulnerable,9.1,High,Blocked
+6,DELETE FROM users WHERE id = 2,138,2024-01-02 20:29:56,safe,0.4,Low,Allowed
+7,"INSERT INTO orders (customer_id, product_id, quantity) VALUES (1, 2, 3)",150,2024-07-16 13:06:07,safe,0.2,Low,Allowed
+8,DELETE FROM users WHERE id = 2,166,2024-03-07 06:15:49,safe,0.2,Low,Allowed
+9,SELECT * FROM orders WHERE order_id = 102,104,2024-03-15 09:21:02,safe,0.2,Low,Allowed
+10,SELECT * FROM customers WHERE country = 'USA',176,2024-04-25 01:23:10,safe,0.1,Low,Allowed
+11,SELECT * FROM products WHERE name = 'product' UNION SELECT * FROM admin_users,128,2024-08-09 04:06:06,highly vulnerable,9.3,High,Blocked
+12,SELECT * FROM users WHERE id = 1,179,2024-06-15 03:05:27,safe,0.4,Low,Allowed
+13,SELECT * FROM invoices WHERE status = 'Paid',171,2024-05-21 02:19:06,safe,0.1,Low,Allowed
+14,SELECT * FROM users WHERE email = '' OR 1=1,184,2024-03-14 16:01:46,vulnerable,8.1,Medium,Blocked
+15,SELECT * FROM orders WHERE order_id = 102,168,2024-02-18 23:25:54,safe,0.5,Low,Allowed
+16,SELECT * FROM employees WHERE username = 'admin' AND password = 'password' OR '1'='1',185,2024-06-25 19:08:21,highly vulnerable,9.6,High,Blocked
+17,SELECT * FROM products WHERE price = '100' OR '1'='1' --,175,2024-03-28 08:40:11,highly vulnerable,9.1,High,Blocked
+18,SELECT * FROM users WHERE id = 1,168,2024-04-24 20:14:33,safe,0.3,Low,Allowed
+19,SELECT * FROM orders WHERE order_id = 102,171,2024-02-10 19:18:43,safe,0.4,Low,Allowed
+20,SELECT * FROM invoices WHERE status = 'Paid',161,2024-02-21 00:58:40,safe,0.2,Low,Allowed
+21,SELECT * FROM employees WHERE username = 'admin' AND password = 'password',133,2024-08-07 10:30:30,vulnerable,7.6,Medium,Blocked
+22,SELECT * FROM accounts WHERE account_number = '' OR 'x'='x',142,2024-02-02 21:48:20,vulnerable,7.4,Medium,Blocked
+23,"INSERT INTO orders (customer_id, product_id, quantity) VALUES (1, 2, 3)",140,2024-08-13 20:47:05,safe,0.5,Low,Allowed
+24,SELECT * FROM users WHERE id = 1,118,2024-06-10 18:24:41,safe,0.2,Low,Allowed
+25,SELECT * FROM products WHERE price = '100' OR '1'='1' --,116,2024-06-28 09:01:44,highly vulnerable,9.8,High,Blocked
+26,SELECT * FROM products WHERE price < 100,147,2024-05-18 09:51:01,safe,0.3,Low,Allowed
+27,SELECT * FROM products WHERE price < 100,163,2024-04-29 18:14:28,safe,0.3,Low,Allowed
+28,SELECT * FROM orders WHERE customer_id = 1 AND 'a'='a',152,2024-03-10 23:35:27,vulnerable,7.7,Medium,Blocked
+29,SELECT * FROM customers WHERE name = 'John' UNION SELECT * FROM users,162,2024-07-04 07:00:06,vulnerable,7.9,Medium,Blocked
+30,SELECT * FROM customers WHERE country = 'USA',103,2024-02-29 05:45:40,safe,0.3,Low,Allowed
+31,DELETE FROM users WHERE id = 2,125,2024-05-15 19:10:52,safe,0.3,Low,Allowed
+32,SELECT * FROM users WHERE id = '1' OR '1' = '1',154,2024-01-31 16:51:16,highly vulnerable,9.7,High,Blocked
+33,SELECT * FROM products WHERE name = 'product' UNION SELECT * FROM admin_users,200,2024-04-14 08:54:46,highly vulnerable,9.2,High,Blocked
+34,SELECT * FROM users WHERE id = '1' OR '1' = '1',196,2024-03-28 03:37:24,highly vulnerable,9.5,High,Blocked
+35,SELECT * FROM orders WHERE customer_id = 1 AND 'a'='a',186,2024-03-31 04:12:00,vulnerable,8.2,Medium,Blocked
+36,SELECT * FROM payments WHERE card_number = '1234',163,2024-01-19 17:54:29,vulnerable,7.5,Medium,Blocked
+37,DROP TABLE users; --,184,2024-07-24 13:22:08,highly vulnerable,9.9,High,Blocked
+38,"INSERT INTO orders (customer_id, product_id, quantity) VALUES (1, 2, 3)",150,2024-06-25 09:35:03,safe,0.1,Low,Allowed
+39,SELECT * FROM users WHERE id = 1,136,2024-02-02 15:58:49,safe,0.4,Low,Allowed
+40,SELECT * FROM users WHERE id = 1,124,2024-07-19 06:32:52,safe,0.2,Low,Allowed
+41,SELECT * FROM transactions WHERE id = ' OR 'x'='x',153,2024-05-08 12:46:27,highly vulnerable,9.5,High,Blocked
+42,SELECT * FROM users WHERE username = 'admin' AND password = ' OR '1'='1',129,2024-08-07 08:52:30,highly vulnerable,9.4,High,Blocked
+43,SELECT * FROM users WHERE id = '1' OR '1' = '1',153,2024-07-25 06:14:48,highly vulnerable,9.6,High,Blocked
+44,SELECT * FROM employees WHERE username = 'admin' AND password = 'password',169,2024-05-21 06:12:45,vulnerable,8.0,Medium,Blocked
+45,SELECT * FROM customers WHERE country = 'USA',160,2024-02-21 16:05:49,safe,0.3,Low,Allowed
+46,SELECT * FROM sales WHERE amount > 500,190,2024-03-25 12:27:34,safe,0.4,Low,Allowed
+47,"INSERT INTO orders (customer_id, product_id, quantity) VALUES (1, 2, 3)",186,2024-02-26 04:05:58,safe,0.2,Low,Allowed
+48,SELECT * FROM products WHERE name = 'product' UNION SELECT * FROM admin_users,146,2024-07-19 09:37:06,highly vulnerable,9.5,High,Blocked
+49,SELECT * FROM sales WHERE amount > 500,197,2024-06-13 07:56:57,safe,0.3,Low,Allowed
+50,SELECT * FROM payments WHERE card_number = '1234',188,2024-04-09 00:07:37,vulnerable,8.3,Medium,Blocked
+51,SELECT * FROM employees WHERE username = 'admin' AND password = 'password',134,2024-05-28 16:42:52,vulnerable,8.2,Medium,Blocked
+52,SELECT * FROM orders WHERE order_id = 102,136,2024-01-22 15:55:35,safe,0.2,Low,Allowed
+53,SELECT * FROM invoices WHERE status = 'Paid',129,2024-06-22 13:14:56,safe,0.3,Low,Allowed
+54,SELECT * FROM customers WHERE country = 'USA',117,2024-07-30 15:34:47,safe,0.3,Low,Allowed
+55,SELECT * FROM payments WHERE card_number = '' OR 1=1; --,156,2024-04-13 07:46:03,highly vulnerable,9.5,High,Blocked
+56,SELECT * FROM logs WHERE action = '' OR '1'='1',175,2024-07-25 08:44:21,vulnerable,8.0,Medium,Blocked
+57,DELETE FROM users WHERE id = 2,146,2024-06-07 06:39:20,safe,0.2,Low,Allowed
+58,SELECT * FROM products WHERE price = '100' OR '1'='1',158,2024-04-13 21:40:45,vulnerable,7.5,Medium,Blocked
+59,SELECT * FROM invoices WHERE status = 'Paid',138,2024-03-06 06:24:04,safe,0.2,Low,Allowed
+60,SELECT * FROM users WHERE id = 1,102,2024-05-13 13:07:41,safe,0.4,Low,Allowed
+61,SELECT * FROM orders WHERE customer_id = 1 AND 'a'='a',127,2024-04-18 08:11:18,vulnerable,7.5,Medium,Blocked
+62,SELECT * FROM transactions WHERE id = ' OR 'x'='x',137,2024-06-26 02:42:51,highly vulnerable,9.1,High,Blocked
+63,SELECT * FROM users WHERE id = 1,187,2024-02-20 12:01:02,safe,0.5,Low,Allowed
+64,SELECT * FROM employees WHERE department = 'HR',167,2024-05-25 16:29:29,safe,0.2,Low,Allowed
+65,SELECT * FROM customers WHERE country = 'USA',165,2024-06-20 16:56:13,safe,0.4,Low,Allowed
+66,SELECT * FROM users WHERE id = 1,158,2024-05-30 01:56:10,safe,0.2,Low,Allowed
+67,SELECT * FROM customers WHERE country = 'USA',183,2024-03-09 21:08:37,safe,0.4,Low,Allowed
+68,DELETE FROM users WHERE id = 2,110,2024-03-07 17:19:52,safe,0.4,Low,Allowed
+69,SELECT * FROM products WHERE price < 100,158,2024-07-03 11:44:04,safe,0.4,Low,Allowed
+70,SELECT * FROM accounts WHERE username = 'admin' AND password = 'password' OR 'x'='x',111,2024-06-22 21:55:31,highly vulnerable,9.6,High,Blocked
+71,SELECT * FROM sales WHERE amount > 500,185,2024-07-19 19:59:58,safe,0.3,Low,Allowed
+72,SELECT * FROM employees WHERE username = 'admin' AND password = 'password',114,2024-04-16 12:37:19,vulnerable,7.9,Medium,Blocked
+73,SELECT * FROM customers WHERE country = 'USA',172,2024-04-06 12:45:26,safe,0.2,Low,Allowed
+74,SELECT * FROM employees WHERE department = 'HR',183,2024-05-27 07:41:00,safe,0.3,Low,Allowed
+75,UPDATE users SET password = 'newpass' WHERE username = 'admin',134,2024-04-03 10:27:18,safe,0.4,Low,Allowed
+76,SELECT * FROM users WHERE username = 'admin' AND password = ' OR '1'='1',178,2024-03-18 07:25:45,highly vulnerable,9.0,High,Blocked
+77,SELECT * FROM users WHERE id = 1,194,2024-07-15 15:10:36,safe,0.2,Low,Allowed
+78,SELECT * FROM employees WHERE username = 'admin' AND password = 'password',161,2024-04-01 00:14:04,vulnerable,8.3,Medium,Blocked
+79,SELECT * FROM users WHERE id = '1' OR '1' = '1',101,2024-05-07 00:20:57,highly vulnerable,10.0,High,Blocked
+80,DELETE FROM users WHERE id = 2,139,2024-02-08 13:15:04,safe,0.4,Low,Allowed
+81,"INSERT INTO orders (customer_id, product_id, quantity) VALUES (1, 2, 3)",129,2024-07-14 02:05:36,safe,0.3,Low,Allowed
+82,"INSERT INTO orders (customer_id, product_id, quantity) VALUES (1, 2, 3)",172,2024-03-27 21:40:45,safe,0.4,Low,Allowed
+83,SELECT * FROM invoices WHERE status = 'Paid',105,2024-03-17 01:15:58,safe,0.4,Low,Allowed
+84,SELECT * FROM products WHERE price = '100' OR '1'='1' --,143,2024-08-02 07:17:46,highly vulnerable,9.7,High,Blocked
+85,DELETE FROM users WHERE id = 2,196,2024-08-03 22:50:01,safe,0.4,Low,Allowed
+86,DELETE FROM users WHERE id = 2,184,2024-01-02 21:02:07,safe,0.1,Low,Allowed
+87,SELECT * FROM users WHERE email = '' OR 1=1,122,2024-08-08 11:45:49,vulnerable,7.1,Medium,Blocked
+88,DROP TABLE users; --,176,2024-07-10 14:22:51,highly vulnerable,9.5,High,Blocked
+89,SELECT * FROM orders WHERE customer_id = 1 AND 'a'='a',127,2024-03-08 23:52:23,vulnerable,8.1,Medium,Blocked
+90,SELECT * FROM users WHERE id = 1,117,2024-01-23 21:23:22,safe,0.5,Low,Allowed
+91,"INSERT INTO orders (customer_id, product_id, quantity) VALUES (1, 2, 3)",119,2024-05-07 02:03:52,safe,0.5,Low,Allowed
+92,SELECT * FROM products WHERE price = '100' OR '1'='1',166,2024-02-24 11:24:46,vulnerable,7.9,Medium,Blocked
+93,DELETE FROM users WHERE id = 2,158,2024-03-26 14:47:36,safe,0.3,Low,Allowed
+94,SELECT * FROM customers WHERE country = 'USA',143,2024-05-22 08:40:56,safe,0.4,Low,Allowed
+95,SELECT * FROM customers WHERE country = 'USA',158,2024-05-25 05:29:48,safe,0.4,Low,Allowed
+96,SELECT * FROM transactions WHERE amount = 0 UNION SELECT * FROM users,133,2024-02-16 20:54:43,vulnerable,8.1,Medium,Blocked
+97,SELECT * FROM products WHERE name = 'product' UNION SELECT * FROM admin_users,104,2024-02-20 22:38:12,highly vulnerable,9.5,High,Blocked
+98,SELECT * FROM employees WHERE username = 'admin' AND password = 'password',137,2024-07-14 15:43:36,vulnerable,8.3,Medium,Blocked
+99,SELECT * FROM sales WHERE amount > 500,125,2024-04-06 08:14:10,safe,0.3,Low,Allowed
+100,SELECT * FROM transactions WHERE amount = 0 UNION SELECT * FROM users,132,2024-04-26 22:21:23,vulnerable,7.7,Medium,Blocked
+101,SELECT * FROM invoices WHERE status = 'Paid',169,2024-05-29 00:36:26,safe,0.2,Low,Allowed
+102,SELECT * FROM customers WHERE country = 'USA',102,2024-08-01 00:28:54,safe,0.3,Low,Allowed
+103,SELECT * FROM invoices WHERE status = 'Paid',100,2024-05-26 03:29:11,safe,0.2,Low,Allowed
+104,SELECT * FROM users WHERE id = 1,192,2024-05-19 15:47:47,safe,0.1,Low,Allowed
+105,SELECT * FROM users WHERE username = 'admin' AND password = ' OR '1'='1',167,2024-02-22 06:47:45,highly vulnerable,9.4,High,Blocked
+106,UPDATE users SET password = 'newpass' WHERE username = 'admin',196,2024-06-22 22:42:09,safe,0.5,Low,Allowed
+107,SELECT * FROM logs WHERE action = '' OR '1'='1',181,2024-03-26 01:29:03,vulnerable,7.4,Medium,Blocked
+108,SELECT * FROM payments WHERE card_number = '1234',172,2024-03-18 13:10:30,vulnerable,7.3,Medium,Blocked
+109,"INSERT INTO orders (customer_id, product_id, quantity) VALUES (1, 2, 3)",169,2024-07-03 05:00:34,safe,0.2,Low,Allowed
+110,UPDATE users SET password = 'newpass' WHERE username = 'admin',181,2024-07-09 20:11:31,safe,0.3,Low,Allowed
+111,"INSERT INTO orders (customer_id, product_id, quantity) VALUES (1, 2, 3)",114,2024-03-17 05:31:11,safe,0.2,Low,Allowed
+112,SELECT * FROM logs WHERE action = '' OR '1'='1',176,2024-01-02 16:25:58,vulnerable,7.4,Medium,Blocked
+113,SELECT * FROM invoices WHERE status = 'Paid',102,2024-07-16 22:37:24,safe,0.4,Low,Allowed
+114,DROP TABLE users; --,126,2024-03-03 10:29:37,highly vulnerable,10.0,High,Blocked
+115,SELECT * FROM employees WHERE department = 'HR',160,2024-05-25 20:53:06,safe,0.3,Low,Allowed
+116,SELECT * FROM orders WHERE order_id = 102,134,2024-06-03 02:24:39,safe,0.4,Low,Allowed
+117,SELECT * FROM logs WHERE action = '' OR '1'='1',157,2024-02-15 22:58:38,vulnerable,8.3,Medium,Blocked
+118,SELECT * FROM transactions WHERE id = ' OR 'x'='x',160,2024-06-23 19:17:22,highly vulnerable,9.5,High,Blocked
+119,SELECT * FROM users WHERE username = 'admin' AND password = ' OR '1'='1',117,2024-04-13 12:03:23,highly vulnerable,9.9,High,Blocked
+120,SELECT * FROM orders WHERE customer_id = 1 AND 'a'='a',116,2024-05-09 11:14:08,vulnerable,7.1,Medium,Blocked
+121,SELECT * FROM sales WHERE amount > 500,163,2024-01-29 15:59:45,safe,0.5,Low,Allowed
+122,SELECT * FROM products WHERE price < 100,194,2024-05-05 21:39:14,safe,0.4,Low,Allowed
+123,SELECT * FROM employees WHERE username = 'admin' AND password = 'password' OR '1'='1',109,2024-07-15 20:20:19,highly vulnerable,9.9,High,Blocked
+124,SELECT * FROM payments WHERE card_number = '1234',169,2024-03-18 09:41:29,vulnerable,7.9,Medium,Blocked
+125,SELECT * FROM products WHERE price = '100' OR '1'='1',138,2024-04-28 11:10:40,vulnerable,7.9,Medium,Blocked
+126,SELECT * FROM employees WHERE department = 'HR',193,2024-06-13 02:52:28,safe,0.5,Low,Allowed
+127,SELECT * FROM users WHERE id = 1,162,2024-08-11 17:14:56,safe,0.3,Low,Allowed
+128,DROP TABLE users; --,182,2024-07-08 18:18:23,highly vulnerable,9.7,High,Blocked
+129,SELECT * FROM users WHERE id = 1,189,2024-01-14 15:39:07,safe,0.3,Low,Allowed
+130,DROP TABLE users; --,128,2024-08-13 20:17:30,highly vulnerable,9.0,High,Blocked
+131,SELECT * FROM orders WHERE customer_id = 1 AND 'a'='a',155,2024-07-05 10:15:06,vulnerable,7.9,Medium,Blocked
+132,SELECT * FROM products WHERE price < 100,185,2024-03-12 09:43:16,safe,0.2,Low,Allowed
+133,SELECT * FROM products WHERE price < 100,135,2024-06-16 00:53:51,safe,0.4,Low,Allowed
+134,SELECT * FROM customers WHERE country = 'USA',143,2024-02-14 16:54:03,safe,0.2,Low,Allowed
+135,SELECT * FROM sales WHERE amount > 500,180,2024-03-28 04:35:15,safe,0.2,Low,Allowed
+136,SELECT * FROM employees WHERE username = 'admin' AND password = 'password',164,2024-07-24 16:05:21,vulnerable,8.1,Medium,Blocked
+137,SELECT * FROM payments WHERE card_number = '1234',101,2024-02-16 11:45:44,vulnerable,7.6,Medium,Blocked
+138,SELECT * FROM transactions WHERE amount = 0 UNION SELECT * FROM users,161,2024-03-24 19:38:06,vulnerable,7.4,Medium,Blocked
+139,SELECT * FROM employees WHERE department = 'HR',164,2024-04-17 03:46:11,safe,0.1,Low,Allowed
+140,SELECT * FROM products WHERE price < 100,117,2024-03-13 20:45:20,safe,0.2,Low,Allowed
+141,SELECT * FROM users WHERE id = 1,130,2024-05-16 17:56:01,safe,0.2,Low,Allowed
+142,SELECT * FROM sales WHERE amount > 500,108,2024-05-21 15:49:31,safe,0.4,Low,Allowed
+143,SELECT * FROM employees WHERE department = 'HR',136,2024-03-19 15:10:45,safe,0.1,Low,Allowed
+144,SELECT * FROM users WHERE id = '1' OR '1' = '1',188,2024-07-08 10:34:54,highly vulnerable,9.8,High,Blocked
+145,SELECT * FROM orders WHERE order_id = 102,196,2024-01-12 12:54:33,safe,0.3,Low,Allowed
+146,SELECT * FROM orders WHERE order_id = 102 OR 'x'='x',116,2024-07-23 01:48:53,highly vulnerable,9.5,High,Blocked
+147,SELECT * FROM customers WHERE name = 'John' UNION SELECT * FROM users,161,2024-01-19 20:45:03,vulnerable,7.6,Medium,Blocked
+148,SELECT * FROM users WHERE id = '1' OR '1' = '1',164,2024-08-12 22:04:15,highly vulnerable,9.4,High,Blocked
+149,SELECT * FROM products WHERE name = 'product' UNION SELECT * FROM admin_users,165,2024-03-02 14:09:09,highly vulnerable,9.7,High,Blocked
+150,SELECT * FROM users WHERE id = 1,188,2024-07-15 18:38:11,safe,0.1,Low,Allowed
+151,SELECT * FROM sales WHERE amount > 500,192,2024-03-26 09:23:09,safe,0.4,Low,Allowed
+152,SELECT * FROM products WHERE price = '100' OR '1'='1' --,195,2024-06-30 08:08:19,highly vulnerable,9.7,High,Blocked
+153,SELECT * FROM users WHERE email = '' OR 1=1,147,2024-02-14 19:38:41,vulnerable,8.1,Medium,Blocked
+154,SELECT * FROM employees WHERE department = 'HR',111,2024-03-29 11:24:45,safe,0.1,Low,Allowed
+155,SELECT * FROM employees WHERE username = 'admin' AND password = 'password' OR '1'='1',143,2024-04-30 20:16:26,highly vulnerable,9.1,High,Blocked
+156,SELECT * FROM orders WHERE order_id = 102 OR 'x'='x',198,2024-01-20 03:40:02,highly vulnerable,9.5,High,Blocked
+157,SELECT * FROM invoices WHERE status = 'Paid',116,2024-08-08 15:46:43,safe,0.2,Low,Allowed
+158,"INSERT INTO orders (customer_id, product_id, quantity) VALUES (1, 2, 3)",146,2024-02-04 03:06:44,safe,0.3,Low,Allowed
+159,SELECT * FROM employees WHERE username = 'admin' AND password = 'password',187,2024-07-15 18:13:48,vulnerable,7.8,Medium,Blocked
+160,SELECT * FROM accounts WHERE account_number = '' OR 'x'='x',173,2024-04-30 06:51:09,vulnerable,7.5,Medium,Blocked
+161,SELECT * FROM sales WHERE amount > 500,176,2024-06-20 19:29:33,safe,0.4,Low,Allowed
+162,SELECT * FROM invoices WHERE status = 'Paid',104,2024-03-04 00:28:32,safe,0.4,Low,Allowed
+163,SELECT * FROM invoices WHERE status = 'Paid',128,2024-07-05 20:17:11,safe,0.4,Low,Allowed
+164,SELECT * FROM transactions WHERE id = ' OR 'x'='x',132,2024-08-05 06:55:05,highly vulnerable,9.8,High,Blocked
+165,SELECT * FROM products WHERE price = '100' OR '1'='1' --,168,2024-05-15 09:54:27,highly vulnerable,9.4,High,Blocked
+166,SELECT * FROM sales WHERE amount > 500,149,2024-04-03 13:16:13,safe,0.3,Low,Allowed
+167,SELECT * FROM customers WHERE country = 'USA',167,2024-03-11 08:38:43,safe,0.4,Low,Allowed
+168,SELECT * FROM payments WHERE card_number = '' OR 1=1; --,114,2024-07-07 06:09:04,highly vulnerable,9.1,High,Blocked
+169,DELETE FROM users WHERE id = 2,163,2024-01-09 00:47:16,safe,0.4,Low,Allowed
+170,SELECT * FROM products WHERE price = '100' OR '1'='1',161,2024-05-03 02:03:45,vulnerable,7.3,Medium,Blocked
+171,SELECT * FROM logs WHERE action = '' OR '1'='1',150,2024-05-22 20:25:16,vulnerable,8.1,Medium,Blocked
+172,SELECT * FROM customers WHERE country = 'USA',159,2024-08-08 09:58:11,safe,0.4,Low,Allowed
+173,SELECT * FROM sales WHERE amount > 500,139,2024-05-08 10:47:15,safe,0.2,Low,Allowed
+174,SELECT * FROM users WHERE id = 1,115,2024-02-02 19:29:25,safe,0.1,Low,Allowed
+175,SELECT * FROM payments WHERE card_number = '' OR 1=1; --,140,2024-01-29 11:44:23,highly vulnerable,9.2,High,Blocked
+176,SELECT * FROM logs WHERE action = '' OR '1'='1',184,2024-01-31 19:03:53,vulnerable,7.4,Medium,Blocked
+177,SELECT * FROM users WHERE username = 'admin' AND password = '' OR '1'='1',104,2024-07-15 01:23:01,vulnerable,7.4,Medium,Blocked
+178,SELECT * FROM employees WHERE username = 'admin' AND password = 'password',193,2024-04-27 11:04:18,vulnerable,8.1,Medium,Blocked
+179,SELECT * FROM sales WHERE amount > 500,129,2024-01-26 03:00:52,safe,0.2,Low,Allowed
+180,SELECT * FROM products WHERE price < 100,143,2024-05-14 12:25:07,safe,0.4,Low,Allowed
+181,SELECT * FROM customers WHERE country = 'USA',143,2024-03-12 20:14:30,safe,0.5,Low,Allowed
+182,UPDATE users SET password = 'newpass' WHERE username = 'admin',179,2024-01-29 09:56:21,safe,0.4,Low,Allowed
+183,SELECT * FROM orders WHERE order_id = 102,169,2024-04-05 20:44:58,safe,0.4,Low,Allowed
+184,DELETE FROM users WHERE id = 2,147,2024-07-19 06:19:26,safe,0.2,Low,Allowed
+185,SELECT * FROM products WHERE name = 'product' UNION SELECT * FROM admin_users,151,2024-03-31 13:56:34,highly vulnerable,9.6,High,Blocked
+186,SELECT * FROM products WHERE price = '100' OR '1'='1',186,2024-05-12 20:29:42,vulnerable,7.4,Medium,Blocked
+187,SELECT * FROM users WHERE username = 'admin' AND password = '' OR '1'='1',192,2024-01-11 23:12:40,vulnerable,7.5,Medium,Blocked
+188,SELECT * FROM accounts WHERE username = 'admin' AND password = 'password' OR 'x'='x',185,2024-05-18 02:44:17,highly vulnerable,9.3,High,Blocked
+189,SELECT * FROM invoices WHERE status = 'Paid',187,2024-04-21 20:36:20,safe,0.5,Low,Allowed
+190,SELECT * FROM sales WHERE amount > 500,183,2024-05-25 10:38:26,safe,0.4,Low,Allowed
+191,DROP TABLE users; --,190,2024-03-21 04:46:13,highly vulnerable,9.3,High,Blocked
+192,UPDATE users SET password = 'newpass' WHERE username = 'admin',125,2024-07-26 00:38:22,safe,0.2,Low,Allowed
+193,SELECT * FROM invoices WHERE status = 'Paid',181,2024-06-01 19:55:43,safe,0.5,Low,Allowed
+194,SELECT * FROM logs WHERE action = '' OR '1'='1',114,2024-02-05 14:48:00,vulnerable,7.8,Medium,Blocked
+195,SELECT * FROM users WHERE id = 1,125,2024-05-29 02:48:17,safe,0.2,Low,Allowed
+196,SELECT * FROM products WHERE price < 100,154,2024-01-12 00:49:20,safe,0.4,Low,Allowed
+197,SELECT * FROM sales WHERE amount > 500,139,2024-04-03 10:41:55,safe,0.3,Low,Allowed
+198,"INSERT INTO orders (customer_id, product_id, quantity) VALUES (1, 2, 3)",143,2024-05-18 11:00:30,safe,0.2,Low,Allowed
+199,SELECT * FROM users WHERE id = 1,121,2024-06-30 02:30:26,safe,0.2,Low,Allowed
+200,SELECT * FROM sales WHERE amount > 500,136,2024-02-14 01:41:36,safe,0.4,Low,Allowed
+201,UPDATE users SET password = 'newpass' WHERE username = 'admin',130,2024-04-04 05:16:07,safe,0.4,Low,Allowed
+202,SELECT * FROM accounts WHERE username = 'admin' AND password = 'password' OR 'x'='x',116,2024-05-13 04:55:49,highly vulnerable,10.0,High,Blocked
+203,SELECT * FROM orders WHERE order_id = 102,169,2024-05-08 08:28:50,safe,0.3,Low,Allowed
+204,DELETE FROM users WHERE id = 2,153,2024-03-02 12:52:48,safe,0.3,Low,Allowed
+205,SELECT * FROM employees WHERE username = 'admin' AND password = 'password',121,2024-07-26 16:56:57,vulnerable,8.1,Medium,Blocked
+206,SELECT * FROM employees WHERE department = 'HR',169,2024-07-15 22:19:26,safe,0.2,Low,Allowed
+207,SELECT * FROM sales WHERE amount > 500,137,2024-02-11 19:42:57,safe,0.3,Low,Allowed
+208,SELECT * FROM accounts WHERE account_number = '' OR 'x'='x',153,2024-06-09 18:08:57,vulnerable,7.2,Medium,Blocked
+209,"INSERT INTO orders (customer_id, product_id, quantity) VALUES (1, 2, 3)",105,2024-06-03 02:29:36,safe,0.1,Low,Allowed
+210,DELETE FROM users WHERE id = 2,129,2024-05-10 20:36:50,safe,0.3,Low,Allowed
+211,SELECT * FROM customers WHERE name = 'John' UNION SELECT * FROM users,151,2024-01-07 12:17:29,vulnerable,7.6,Medium,Blocked
+212,SELECT * FROM products WHERE price < 100,135,2024-05-05 00:34:49,safe,0.2,Low,Allowed
+213,SELECT * FROM payments WHERE card_number = '' OR 1=1; --,141,2024-03-25 14:56:39,highly vulnerable,9.4,High,Blocked
+214,SELECT * FROM orders WHERE order_id = 102,105,2024-07-07 03:48:28,safe,0.2,Low,Allowed
+215,UPDATE users SET password = 'newpass' WHERE username = 'admin',174,2024-07-04 17:03:58,safe,0.2,Low,Allowed
+216,SELECT * FROM products WHERE price = '100' OR '1'='1',108,2024-07-03 06:26:59,vulnerable,8.2,Medium,Blocked
+217,SELECT * FROM customers WHERE country = 'USA',159,2024-01-31 02:44:24,safe,0.2,Low,Allowed
+218,SELECT * FROM products WHERE price < 100,172,2024-04-25 07:06:41,safe,0.1,Low,Allowed
+219,SELECT * FROM accounts WHERE account_number = '' OR 'x'='x',186,2024-02-13 03:06:55,vulnerable,7.4,Medium,Blocked
+220,SELECT * FROM customers WHERE country = 'USA',103,2024-03-03 18:53:38,safe,0.3,Low,Allowed
+221,SELECT * FROM employees WHERE department = 'HR',114,2024-04-07 22:59:40,safe,0.4,Low,Allowed
+222,SELECT * FROM orders WHERE order_id = 102,156,2024-04-11 07:23:57,safe,0.3,Low,Allowed
+223,SELECT * FROM employees WHERE username = 'admin' AND password = 'password' OR '1'='1',187,2024-04-23 12:24:25,highly vulnerable,9.0,High,Blocked
+224,SELECT * FROM users WHERE username = 'admin' AND password = ' OR '1'='1',138,2024-08-06 19:19:01,highly vulnerable,9.2,High,Blocked
+225,SELECT * FROM logs WHERE action = '' OR '1'='1',151,2024-06-21 21:10:23,vulnerable,8.3,Medium,Blocked
+226,SELECT * FROM products WHERE name = 'product' UNION SELECT * FROM admin_users,101,2024-01-01 05:56:35,highly vulnerable,9.8,High,Blocked
+227,SELECT * FROM payments WHERE card_number = '1234',113,2024-02-11 08:38:24,vulnerable,7.6,Medium,Blocked
+228,SELECT * FROM invoices WHERE status = 'Paid',176,2024-06-12 06:48:45,safe,0.3,Low,Allowed
+229,SELECT * FROM invoices WHERE status = 'Paid',140,2024-06-15 22:52:48,safe,0.5,Low,Allowed
+230,SELECT * FROM products WHERE price = '100' OR '1'='1',172,2024-07-24 05:23:46,vulnerable,8.3,Medium,Blocked
+231,SELECT * FROM users WHERE id = 1,168,2024-05-23 02:26:21,safe,0.1,Low,Allowed
+232,SELECT * FROM products WHERE price < 100,147,2024-01-25 05:03:09,safe,0.1,Low,Allowed
+233,SELECT * FROM users WHERE username = 'admin' AND password = '' OR '1'='1',122,2024-02-24 17:12:00,vulnerable,7.1,Medium,Blocked
+234,SELECT * FROM invoices WHERE status = 'Paid',152,2024-08-10 10:32:03,safe,0.5,Low,Allowed
+235,SELECT * FROM sales WHERE amount > 500,158,2024-07-19 09:53:13,safe,0.2,Low,Allowed
+236,SELECT * FROM products WHERE name = 'product' UNION SELECT * FROM admin_users,198,2024-07-10 18:09:10,highly vulnerable,9.1,High,Blocked
+237,SELECT * FROM invoices WHERE status = 'Paid',185,2024-02-16 08:40:12,safe,0.5,Low,Allowed
+238,SELECT * FROM products WHERE price < 100,113,2024-02-29 09:54:02,safe,0.2,Low,Allowed
+239,SELECT * FROM products WHERE price = '100' OR '1'='1',106,2024-01-05 12:35:15,vulnerable,7.4,Medium,Blocked
+240,UPDATE users SET password = 'newpass' WHERE username = 'admin',166,2024-03-05 07:38:04,safe,0.4,Low,Allowed
+241,SELECT * FROM users WHERE id = 1,114,2024-07-28 00:49:34,safe,0.4,Low,Allowed
+242,SELECT * FROM customers WHERE country = 'USA',152,2024-01-07 03:00:49,safe,0.4,Low,Allowed
+243,SELECT * FROM products WHERE price = '100' OR '1'='1',158,2024-01-11 01:07:50,vulnerable,7.3,Medium,Blocked
+244,"INSERT INTO orders (customer_id, product_id, quantity) VALUES (1, 2, 3)",164,2024-03-24 15:50:19,safe,0.4,Low,Allowed
+245,SELECT * FROM orders WHERE order_id = 102,178,2024-04-22 03:58:24,safe,0.2,Low,Allowed
+246,SELECT * FROM sales WHERE amount > 500,111,2024-07-07 09:24:59,safe,0.4,Low,Allowed
+247,SELECT * FROM payments WHERE card_number = '1234',157,2024-01-21 14:12:33,vulnerable,8.5,Medium,Blocked
+248,SELECT * FROM products WHERE name = 'product' UNION SELECT * FROM admin_users,120,2024-01-22 19:55:52,highly vulnerable,9.2,High,Blocked
+249,SELECT * FROM orders WHERE order_id = 102,182,2024-07-10 22:34:05,safe,0.2,Low,Allowed
+250,DELETE FROM users WHERE id = 2,108,2024-01-23 07:28:23,safe,0.4,Low,Allowed
+251,SELECT * FROM users WHERE id = 1,194,2024-03-27 08:56:59,safe,0.3,Low,Allowed
+252,SELECT * FROM orders WHERE customer_id = 1 AND 'a'='a',121,2024-03-21 01:48:42,vulnerable,8.1,Medium,Blocked
+253,SELECT * FROM payments WHERE card_number = '1234',189,2024-05-31 12:04:10,vulnerable,8.5,Medium,Blocked
+254,"INSERT INTO orders (customer_id, product_id, quantity) VALUES (1, 2, 3)",162,2024-02-23 12:06:21,safe,0.4,Low,Allowed
+255,SELECT * FROM logs WHERE action = '' OR '1'='1',106,2024-02-15 22:40:31,vulnerable,7.9,Medium,Blocked
+256,SELECT * FROM invoices WHERE status = 'Paid',133,2024-01-23 13:41:25,safe,0.5,Low,Allowed
+257,SELECT * FROM sales WHERE amount > 500,104,2024-06-26 15:15:25,safe,0.3,Low,Allowed
+258,SELECT * FROM employees WHERE department = 'HR',167,2024-04-16 17:58:24,safe,0.3,Low,Allowed
+259,SELECT * FROM sales WHERE amount > 500,151,2024-06-13 03:48:21,safe,0.1,Low,Allowed
+260,SELECT * FROM logs WHERE action = '' OR '1'='1',173,2024-07-28 23:31:11,vulnerable,7.6,Medium,Blocked
+261,SELECT * FROM orders WHERE customer_id = 1 AND 'a'='a',172,2024-08-02 05:49:41,vulnerable,8.3,Medium,Blocked
+262,SELECT * FROM invoices WHERE status = 'Paid',183,2024-08-10 01:25:13,safe,0.2,Low,Allowed
+263,SELECT * FROM orders WHERE customer_id = 1 AND 'a'='a',167,2024-02-14 10:29:20,vulnerable,8.0,Medium,Blocked
+264,SELECT * FROM payments WHERE card_number = '1234',177,2024-04-20 18:14:21,vulnerable,7.5,Medium,Blocked
+265,SELECT * FROM transactions WHERE id = ' OR 'x'='x',152,2024-04-27 09:11:08,highly vulnerable,9.2,High,Blocked
+266,SELECT * FROM users WHERE id = 1,143,2024-01-20 21:01:00,safe,0.2,Low,Allowed
+267,SELECT * FROM sales WHERE amount > 500,177,2024-03-10 12:00:15,safe,0.2,Low,Allowed
+268,SELECT * FROM products WHERE price = '100' OR '1'='1',178,2024-06-18 17:30:56,vulnerable,7.3,Medium,Blocked
+269,SELECT * FROM users WHERE id = 1,200,2024-03-01 02:00:17,safe,0.4,Low,Allowed
+270,SELECT * FROM products WHERE price < 100,129,2024-02-04 11:42:33,safe,0.2,Low,Allowed
+271,SELECT * FROM sales WHERE amount > 500,135,2024-07-11 10:55:49,safe,0.1,Low,Allowed
+272,SELECT * FROM sales WHERE amount > 500,129,2024-07-03 21:58:55,safe,0.3,Low,Allowed
+273,SELECT * FROM accounts WHERE account_number = '' OR 'x'='x',153,2024-03-22 14:49:38,vulnerable,8.3,Medium,Blocked
+274,SELECT * FROM users WHERE id = '1' OR '1' = '1',171,2024-07-27 22:43:45,highly vulnerable,9.2,High,Blocked
+275,SELECT * FROM products WHERE price = '100' OR '1'='1',137,2024-01-15 19:03:53,vulnerable,8.0,Medium,Blocked
+276,UPDATE users SET password = 'newpass' WHERE username = 'admin',127,2024-04-06 07:55:59,safe,0.2,Low,Allowed
+277,SELECT * FROM orders WHERE order_id = 102 OR 'x'='x',117,2024-04-19 05:29:01,highly vulnerable,9.8,High,Blocked
+278,SELECT * FROM invoices WHERE status = 'Paid',136,2024-02-14 18:57:08,safe,0.5,Low,Allowed
+279,SELECT * FROM payments WHERE card_number = '1234',128,2024-01-04 19:36:28,vulnerable,7.1,Medium,Blocked
+280,SELECT * FROM users WHERE id = 1,126,2024-01-01 04:38:58,safe,0.4,Low,Allowed
+281,SELECT * FROM transactions WHERE id = ' OR 'x'='x',162,2024-05-27 00:56:06,highly vulnerable,9.7,High,Blocked
+282,SELECT * FROM invoices WHERE status = 'Paid',198,2024-06-10 22:32:39,safe,0.3,Low,Allowed
+283,SELECT * FROM sales WHERE amount > 500,106,2024-07-22 21:02:06,safe,0.5,Low,Allowed
+284,SELECT * FROM invoices WHERE status = 'Paid',184,2024-03-23 13:40:52,safe,0.5,Low,Allowed
+285,SELECT * FROM accounts WHERE username = 'admin' AND password = 'password' OR 'x'='x',138,2024-06-06 08:10:44,highly vulnerable,9.2,High,Blocked
+286,SELECT * FROM invoices WHERE status = 'Paid',139,2024-05-01 11:54:03,safe,0.2,Low,Allowed
+287,SELECT * FROM customers WHERE country = 'USA',164,2024-02-01 14:39:27,safe,0.2,Low,Allowed
+288,SELECT * FROM orders WHERE customer_id = 1 AND 'a'='a',166,2024-06-13 14:08:47,vulnerable,7.4,Medium,Blocked
+289,SELECT * FROM sales WHERE amount > 500,184,2024-05-04 00:37:44,safe,0.2,Low,Allowed
+290,SELECT * FROM users WHERE id = 1,119,2024-04-06 20:29:33,safe,0.2,Low,Allowed
+291,SELECT * FROM users WHERE id = '1' OR '1' = '1',139,2024-02-05 10:12:45,highly vulnerable,9.2,High,Blocked
+292,SELECT * FROM sales WHERE amount > 500,140,2024-03-17 12:56:48,safe,0.3,Low,Allowed
+293,SELECT * FROM sales WHERE amount > 500,200,2024-07-06 04:56:53,safe,0.3,Low,Allowed
+294,"INSERT INTO orders (customer_id, product_id, quantity) VALUES (1, 2, 3)",124,2024-03-14 05:35:57,safe,0.5,Low,Allowed
+295,SELECT * FROM logs WHERE action = '' OR '1'='1',112,2024-06-16 04:24:11,vulnerable,7.5,Medium,Blocked
+296,SELECT * FROM users WHERE username = 'admin' AND password = '' OR '1'='1',141,2024-05-09 21:26:57,vulnerable,7.8,Medium,Blocked
+297,SELECT * FROM employees WHERE department = 'HR',119,2024-02-15 02:29:47,safe,0.5,Low,Allowed
+298,DROP TABLE users; --,144,2024-07-02 09:12:14,highly vulnerable,9.4,High,Blocked
+299,SELECT * FROM products WHERE name = 'product' UNION SELECT * FROM admin_users,135,2024-03-27 04:00:31,highly vulnerable,9.5,High,Blocked
+300,SELECT * FROM employees WHERE username = 'admin' AND password = 'password',152,2024-05-04 10:44:45,vulnerable,7.8,Medium,Blocked
+301,SELECT * FROM products WHERE price < 100,188,2024-05-06 21:58:23,safe,0.1,Low,Allowed
+302,UPDATE users SET password = 'newpass' WHERE username = 'admin',146,2024-04-20 01:59:45,safe,0.2,Low,Allowed
+303,SELECT * FROM products WHERE price < 100,171,2024-04-24 08:37:28,safe,0.4,Low,Allowed
+304,SELECT * FROM customers WHERE country = 'USA',182,2024-04-04 17:57:26,safe,0.4,Low,Allowed
+305,SELECT * FROM employees WHERE username = 'admin' AND password = 'password' OR '1'='1',184,2024-05-29 16:26:55,highly vulnerable,9.8,High,Blocked
+306,SELECT * FROM products WHERE name = 'product' UNION SELECT * FROM admin_users,186,2024-06-22 03:17:41,highly vulnerable,9.7,High,Blocked
+307,SELECT * FROM users WHERE email = '' OR 1=1,121,2024-03-14 03:27:31,vulnerable,7.6,Medium,Blocked
+308,UPDATE users SET password = 'newpass' WHERE username = 'admin',111,2024-02-15 16:59:19,safe,0.4,Low,Allowed
+309,SELECT * FROM products WHERE price = '100' OR '1'='1' --,117,2024-02-28 02:34:44,highly vulnerable,9.7,High,Blocked
+310,SELECT * FROM payments WHERE card_number = '1234',155,2024-05-25 18:28:04,vulnerable,7.3,Medium,Blocked
+311,SELECT * FROM products WHERE price < 100,185,2024-03-02 21:37:27,safe,0.5,Low,Allowed
+312,SELECT * FROM users WHERE id = 1,167,2024-05-19 14:23:12,safe,0.3,Low,Allowed
+313,SELECT * FROM products WHERE price < 100,158,2024-07-09 21:29:57,safe,0.2,Low,Allowed
+314,SELECT * FROM employees WHERE department = 'HR',101,2024-02-16 12:41:07,safe,0.4,Low,Allowed
+315,SELECT * FROM transactions WHERE amount = 0 UNION SELECT * FROM users,192,2024-05-15 21:46:46,vulnerable,8.4,Medium,Blocked
+316,SELECT * FROM users WHERE email = '' OR 1=1,194,2024-07-20 19:49:13,vulnerable,7.7,Medium,Blocked
+317,SELECT * FROM employees WHERE department = 'HR',152,2024-03-19 02:09:50,safe,0.5,Low,Allowed
+318,SELECT * FROM customers WHERE country = 'USA',109,2024-04-20 14:41:35,safe,0.5,Low,Allowed
+319,SELECT * FROM accounts WHERE account_number = '' OR 'x'='x',177,2024-05-04 14:06:46,vulnerable,7.7,Medium,Blocked
+320,SELECT * FROM accounts WHERE account_number = '' OR 'x'='x',169,2024-01-17 19:25:00,vulnerable,8.3,Medium,Blocked
+321,SELECT * FROM users WHERE username = 'admin' AND password = ' OR '1'='1',196,2024-06-16 00:18:13,highly vulnerable,10.0,High,Blocked
+322,UPDATE users SET password = 'newpass' WHERE username = 'admin',180,2024-06-19 21:13:14,safe,0.2,Low,Allowed
+323,SELECT * FROM invoices WHERE status = 'Paid',117,2024-03-25 14:33:41,safe,0.5,Low,Allowed
+324,SELECT * FROM users WHERE username = 'admin' AND password = ' OR '1'='1',115,2024-04-14 08:18:37,highly vulnerable,9.1,High,Blocked
+325,SELECT * FROM products WHERE price = '100' OR '1'='1',144,2024-08-12 16:27:29,vulnerable,7.7,Medium,Blocked
+326,SELECT * FROM accounts WHERE account_number = '' OR 'x'='x',144,2024-05-05 13:44:55,vulnerable,8.0,Medium,Blocked
+327,SELECT * FROM products WHERE price = '100' OR '1'='1' --,156,2024-04-25 15:09:14,highly vulnerable,9.3,High,Blocked
+328,SELECT * FROM sales WHERE amount > 500,109,2024-05-30 00:04:59,safe,0.1,Low,Allowed
+329,SELECT * FROM invoices WHERE status = 'Paid',117,2024-04-12 09:16:50,safe,0.4,Low,Allowed
+330,SELECT * FROM products WHERE price = '100' OR '1'='1',111,2024-05-23 19:21:29,vulnerable,7.6,Medium,Blocked
+331,DROP TABLE users; --,153,2024-05-27 14:15:51,highly vulnerable,9.9,High,Blocked
+332,SELECT * FROM products WHERE price = '100' OR '1'='1',197,2024-06-13 05:24:20,vulnerable,7.3,Medium,Blocked
+333,SELECT * FROM customers WHERE name = 'John' UNION SELECT * FROM users,129,2024-01-14 16:15:34,vulnerable,7.6,Medium,Blocked
+334,SELECT * FROM orders WHERE order_id = 102 OR 'x'='x',161,2024-04-10 06:59:43,highly vulnerable,9.5,High,Blocked
+335,SELECT * FROM transactions WHERE amount = 0 UNION SELECT * FROM users,123,2024-01-01 05:57:49,vulnerable,8.0,Medium,Blocked
+336,SELECT * FROM users WHERE id = '1' OR '1' = '1',108,2024-01-24 14:30:45,highly vulnerable,9.5,High,Blocked
+337,SELECT * FROM products WHERE price < 100,198,2024-07-17 04:04:47,safe,0.2,Low,Allowed
+338,SELECT * FROM products WHERE price < 100,120,2024-07-26 18:19:07,safe,0.3,Low,Allowed
+339,SELECT * FROM users WHERE email = '' OR 1=1,139,2024-02-04 17:50:57,vulnerable,8.4,Medium,Blocked
+340,DROP TABLE users; --,183,2024-02-12 05:19:16,highly vulnerable,9.5,High,Blocked
+341,SELECT * FROM customers WHERE name = 'John' UNION SELECT * FROM users,124,2024-05-23 03:48:55,vulnerable,8.1,Medium,Blocked
+342,SELECT * FROM sales WHERE amount > 500,159,2024-01-23 11:13:50,safe,0.3,Low,Allowed
+343,SELECT * FROM orders WHERE order_id = 102,155,2024-07-08 15:13:44,safe,0.5,Low,Allowed
+344,DROP TABLE users; --,153,2024-02-11 16:37:26,highly vulnerable,9.7,High,Blocked
+345,SELECT * FROM products WHERE price < 100,132,2024-04-07 20:01:40,safe,0.3,Low,Allowed
+346,SELECT * FROM users WHERE email = '' OR 1=1,124,2024-01-04 12:01:01,vulnerable,7.3,Medium,Blocked
+347,SELECT * FROM invoices WHERE status = 'Paid',178,2024-05-04 18:38:26,safe,0.5,Low,Allowed
+348,SELECT * FROM products WHERE price < 100,186,2024-05-29 21:52:34,safe,0.2,Low,Allowed
+349,UPDATE users SET password = 'newpass' WHERE username = 'admin',196,2024-02-16 21:53:09,safe,0.4,Low,Allowed
+350,SELECT * FROM orders WHERE order_id = 102,180,2024-06-14 00:04:21,safe,0.2,Low,Allowed
+351,SELECT * FROM users WHERE id = '1' OR '1' = '1',153,2024-05-08 05:07:50,highly vulnerable,9.4,High,Blocked
+352,SELECT * FROM orders WHERE order_id = 102 OR 'x'='x',152,2024-07-05 14:48:45,highly vulnerable,9.5,High,Blocked
+353,SELECT * FROM users WHERE id = 1,161,2024-01-07 10:09:28,safe,0.5,Low,Allowed
+354,SELECT * FROM accounts WHERE account_number = '' OR 'x'='x',188,2024-05-21 05:58:49,vulnerable,7.9,Medium,Blocked
+355,"INSERT INTO orders (customer_id, product_id, quantity) VALUES (1, 2, 3)",107,2024-01-19 16:54:24,safe,0.2,Low,Allowed
+356,SELECT * FROM products WHERE name = 'product' UNION SELECT * FROM admin_users,139,2024-02-23 10:55:15,highly vulnerable,9.2,High,Blocked
+357,SELECT * FROM customers WHERE country = 'USA',162,2024-02-25 17:21:32,safe,0.5,Low,Allowed
+358,SELECT * FROM customers WHERE name = 'John' UNION SELECT * FROM users,190,2024-01-02 18:23:19,vulnerable,7.7,Medium,Blocked
+359,SELECT * FROM transactions WHERE id = ' OR 'x'='x',153,2024-04-08 17:53:46,highly vulnerable,9.9,High,Blocked
+360,SELECT * FROM accounts WHERE account_number = '' OR 'x'='x',113,2024-06-12 13:11:09,vulnerable,7.2,Medium,Blocked
+361,SELECT * FROM invoices WHERE status = 'Paid',133,2024-04-18 13:13:58,safe,0.3,Low,Allowed
+362,SELECT * FROM accounts WHERE account_number = '' OR 'x'='x',120,2024-07-14 02:26:50,vulnerable,7.1,Medium,Blocked
+363,SELECT * FROM transactions WHERE amount = 0 UNION SELECT * FROM users,106,2024-02-07 04:54:31,vulnerable,8.2,Medium,Blocked
+364,"INSERT INTO orders (customer_id, product_id, quantity) VALUES (1, 2, 3)",137,2024-05-24 06:42:18,safe,0.3,Low,Allowed
+365,DELETE FROM users WHERE id = 2,159,2024-02-21 06:24:04,safe,0.1,Low,Allowed
+366,DELETE FROM users WHERE id = 2,133,2024-03-26 02:57:15,safe,0.4,Low,Allowed
+367,SELECT * FROM invoices WHERE status = 'Paid',146,2024-02-07 14:10:45,safe,0.2,Low,Allowed
+368,SELECT * FROM users WHERE username = 'admin' AND password = '' OR '1'='1',166,2024-01-11 21:49:45,vulnerable,7.7,Medium,Blocked
+369,SELECT * FROM sales WHERE amount > 500,146,2024-06-05 18:56:54,safe,0.1,Low,Allowed
+370,SELECT * FROM accounts WHERE account_number = '' OR 'x'='x',115,2024-05-20 07:22:38,vulnerable,7.9,Medium,Blocked
+371,SELECT * FROM accounts WHERE account_number = '' OR 'x'='x',101,2024-02-09 14:11:49,vulnerable,8.4,Medium,Blocked
+372,SELECT * FROM products WHERE name = 'product' UNION SELECT * FROM admin_users,107,2024-07-21 02:44:31,highly vulnerable,9.1,High,Blocked
+373,SELECT * FROM employees WHERE username = 'admin' AND password = 'password',100,2024-03-06 07:10:50,vulnerable,7.4,Medium,Blocked
+374,SELECT * FROM logs WHERE action = '' OR '1'='1',182,2024-07-06 20:51:10,vulnerable,7.5,Medium,Blocked
+375,SELECT * FROM accounts WHERE username = 'admin' AND password = 'password' OR 'x'='x',178,2024-05-22 14:06:36,highly vulnerable,9.9,High,Blocked
+376,SELECT * FROM accounts WHERE account_number = '' OR 'x'='x',118,2024-06-21 14:19:07,vulnerable,8.5,Medium,Blocked
+377,DROP TABLE users; --,194,2024-03-11 12:03:30,highly vulnerable,9.6,High,Blocked
+378,DELETE FROM users WHERE id = 2,100,2024-03-15 07:13:47,safe,0.3,Low,Allowed
+379,SELECT * FROM invoices WHERE status = 'Paid',173,2024-07-18 14:31:43,safe,0.5,Low,Allowed
+380,SELECT * FROM invoices WHERE status = 'Paid',179,2024-03-22 01:35:31,safe,0.1,Low,Allowed
+381,DROP TABLE users; --,158,2024-04-27 04:43:48,highly vulnerable,9.4,High,Blocked
+382,SELECT * FROM users WHERE email = '' OR 1=1,179,2024-05-14 10:52:46,vulnerable,7.2,Medium,Blocked
+383,SELECT * FROM employees WHERE department = 'HR',161,2024-06-10 22:16:37,safe,0.5,Low,Allowed
+384,DELETE FROM users WHERE id = 2,146,2024-04-18 12:24:44,safe,0.5,Low,Allowed
+385,SELECT * FROM accounts WHERE username = 'admin' AND password = 'password' OR 'x'='x',195,2024-03-11 10:02:39,highly vulnerable,9.4,High,Blocked
+386,SELECT * FROM orders WHERE order_id = 102,111,2024-03-01 10:07:08,safe,0.4,Low,Allowed
+387,SELECT * FROM customers WHERE country = 'USA',196,2024-05-27 05:46:19,safe,0.2,Low,Allowed
+388,SELECT * FROM customers WHERE name = 'John' UNION SELECT * FROM users,173,2024-06-15 07:18:53,vulnerable,7.6,Medium,Blocked
+389,SELECT * FROM logs WHERE action = '' OR '1'='1',107,2024-04-09 16:08:09,vulnerable,8.3,Medium,Blocked
+390,SELECT * FROM invoices WHERE status = 'Paid',139,2024-04-24 00:35:24,safe,0.3,Low,Allowed
+391,SELECT * FROM users WHERE id = '1' OR '1' = '1',165,2024-07-31 20:36:42,highly vulnerable,9.8,High,Blocked
+392,SELECT * FROM employees WHERE username = 'admin' AND password = 'password',196,2024-01-26 22:27:29,vulnerable,8.3,Medium,Blocked
+393,SELECT * FROM customers WHERE country = 'USA',114,2024-07-24 20:11:16,safe,0.1,Low,Allowed
+394,SELECT * FROM payments WHERE card_number = '' OR 1=1; --,193,2024-04-02 12:37:50,highly vulnerable,9.6,High,Blocked
+395,SELECT * FROM transactions WHERE id = ' OR 'x'='x',199,2024-03-31 08:06:43,highly vulnerable,10.0,High,Blocked
+396,"INSERT INTO orders (customer_id, product_id, quantity) VALUES (1, 2, 3)",103,2024-08-10 01:08:35,safe,0.3,Low,Allowed
+397,SELECT * FROM orders WHERE order_id = 102,116,2024-01-18 09:42:21,safe,0.5,Low,Allowed
+398,SELECT * FROM users WHERE email = '' OR 1=1,101,2024-02-17 13:06:50,vulnerable,7.2,Medium,Blocked
+399,SELECT * FROM products WHERE price = '100' OR '1'='1',117,2024-08-05 01:53:59,vulnerable,7.8,Medium,Blocked
+400,SELECT * FROM orders WHERE order_id = 102,182,2024-01-12 09:01:38,safe,0.2,Low,Allowed
+401,SELECT * FROM accounts WHERE account_number = '' OR 'x'='x',186,2024-01-04 14:46:20,vulnerable,8.0,Medium,Blocked
+402,SELECT * FROM products WHERE price = '100' OR '1'='1',117,2024-02-24 14:16:36,vulnerable,8.0,Medium,Blocked
+403,"INSERT INTO orders (customer_id, product_id, quantity) VALUES (1, 2, 3)",177,2024-03-16 09:31:19,safe,0.4,Low,Allowed
+404,SELECT * FROM employees WHERE department = 'HR',177,2024-08-07 15:17:38,safe,0.5,Low,Allowed
+405,SELECT * FROM accounts WHERE username = 'admin' AND password = 'password' OR 'x'='x',176,2024-08-01 14:32:18,highly vulnerable,9.9,High,Blocked
+406,SELECT * FROM users WHERE email = '' OR 1=1,138,2024-07-06 21:45:53,vulnerable,7.9,Medium,Blocked
+407,SELECT * FROM sales WHERE amount > 500,114,2024-02-26 02:58:54,safe,0.2,Low,Allowed
+408,SELECT * FROM invoices WHERE status = 'Paid',148,2024-06-30 21:21:16,safe,0.5,Low,Allowed
+409,SELECT * FROM payments WHERE card_number = '1234',155,2024-08-07 07:08:37,vulnerable,7.5,Medium,Blocked
+410,SELECT * FROM logs WHERE action = '' OR '1'='1',116,2024-04-06 21:35:25,vulnerable,7.7,Medium,Blocked
+411,SELECT * FROM payments WHERE card_number = '' OR 1=1; --,170,2024-05-08 11:09:41,highly vulnerable,9.3,High,Blocked
+412,SELECT * FROM customers WHERE country = 'USA',107,2024-05-04 15:54:48,safe,0.4,Low,Allowed
+413,SELECT * FROM transactions WHERE amount = 0 UNION SELECT * FROM users,106,2024-05-06 20:30:35,vulnerable,8.4,Medium,Blocked
+414,SELECT * FROM orders WHERE order_id = 102,135,2024-05-20 13:01:59,safe,0.3,Low,Allowed
+415,SELECT * FROM products WHERE name = 'product' UNION SELECT * FROM admin_users,127,2024-07-01 02:39:39,highly vulnerable,9.9,High,Blocked
+416,SELECT * FROM employees WHERE department = 'HR',129,2024-07-08 00:00:12,safe,0.3,Low,Allowed
+417,SELECT * FROM customers WHERE country = 'USA',137,2024-03-18 09:52:28,safe,0.5,Low,Allowed
+418,UPDATE users SET password = 'newpass' WHERE username = 'admin',156,2024-08-13 14:43:27,safe,0.5,Low,Allowed
+419,"INSERT INTO orders (customer_id, product_id, quantity) VALUES (1, 2, 3)",119,2024-06-14 02:10:56,safe,0.2,Low,Allowed
+420,SELECT * FROM products WHERE price < 100,144,2024-03-16 16:59:03,safe,0.2,Low,Allowed
+421,SELECT * FROM orders WHERE order_id = 102,148,2024-06-04 01:44:23,safe,0.5,Low,Allowed
+422,SELECT * FROM products WHERE price < 100,102,2024-07-02 08:39:53,safe,0.2,Low,Allowed
+423,SELECT * FROM invoices WHERE status = 'Paid',101,2024-01-13 21:39:51,safe,0.5,Low,Allowed
+424,SELECT * FROM customers WHERE country = 'USA',109,2024-03-17 13:43:22,safe,0.2,Low,Allowed
+425,SELECT * FROM products WHERE name = 'product' UNION SELECT * FROM admin_users,153,2024-02-11 05:19:56,highly vulnerable,9.5,High,Blocked
+426,SELECT * FROM employees WHERE department = 'HR',102,2024-03-22 00:19:05,safe,0.4,Low,Allowed
+427,SELECT * FROM accounts WHERE account_number = '' OR 'x'='x',183,2024-04-02 19:06:11,vulnerable,7.4,Medium,Blocked
+428,SELECT * FROM invoices WHERE status = 'Paid',171,2024-07-16 20:03:21,safe,0.3,Low,Allowed
+429,SELECT * FROM products WHERE price < 100,159,2024-03-31 03:44:01,safe,0.2,Low,Allowed
+430,"INSERT INTO orders (customer_id, product_id, quantity) VALUES (1, 2, 3)",180,2024-07-07 16:43:21,safe,0.2,Low,Allowed
+431,SELECT * FROM users WHERE id = 1,106,2024-04-20 13:45:27,safe,0.5,Low,Allowed
+432,SELECT * FROM orders WHERE order_id = 102,120,2024-04-21 02:53:46,safe,0.3,Low,Allowed
+433,DELETE FROM users WHERE id = 2,131,2024-02-15 13:30:28,safe,0.2,Low,Allowed
+434,SELECT * FROM products WHERE price < 100,175,2024-02-27 19:27:10,safe,0.2,Low,Allowed
+435,SELECT * FROM employees WHERE department = 'HR',178,2024-01-07 19:37:22,safe,0.4,Low,Allowed
+436,SELECT * FROM sales WHERE amount > 500,139,2024-05-30 08:07:53,safe,0.4,Low,Allowed
+437,SELECT * FROM users WHERE username = 'admin' AND password = '' OR '1'='1',190,2024-01-14 09:38:44,vulnerable,7.6,Medium,Blocked
+438,SELECT * FROM payments WHERE card_number = '1234',146,2024-02-22 12:09:45,vulnerable,8.3,Medium,Blocked
+439,SELECT * FROM orders WHERE order_id = 102 OR 'x'='x',161,2024-08-04 17:22:52,highly vulnerable,9.4,High,Blocked
+440,DELETE FROM users WHERE id = 2,122,2024-05-13 20:38:06,safe,0.2,Low,Allowed
+441,UPDATE users SET password = 'newpass' WHERE username = 'admin',119,2024-08-08 22:01:58,safe,0.3,Low,Allowed
+442,SELECT * FROM accounts WHERE username = 'admin' AND password = 'password' OR 'x'='x',105,2024-05-22 00:42:58,highly vulnerable,9.9,High,Blocked
+443,SELECT * FROM payments WHERE card_number = '1234',196,2024-02-16 19:40:49,vulnerable,7.8,Medium,Blocked
+444,SELECT * FROM users WHERE id = 1,132,2024-05-10 16:07:35,safe,0.4,Low,Allowed
+445,DROP TABLE users; --,167,2024-05-19 13:49:29,highly vulnerable,9.3,High,Blocked
+446,SELECT * FROM users WHERE id = '1' OR '1' = '1',171,2024-06-13 15:51:43,highly vulnerable,9.4,High,Blocked
+447,SELECT * FROM orders WHERE order_id = 102,131,2024-07-21 03:56:06,safe,0.1,Low,Allowed
+448,SELECT * FROM customers WHERE name = 'John' UNION SELECT * FROM users,186,2024-05-18 04:22:25,vulnerable,7.3,Medium,Blocked
+449,SELECT * FROM users WHERE username = 'admin' AND password = '' OR '1'='1',189,2024-07-14 13:54:07,vulnerable,8.1,Medium,Blocked
+450,SELECT * FROM users WHERE email = '' OR 1=1,131,2024-05-17 05:05:28,vulnerable,8.0,Medium,Blocked
+451,SELECT * FROM orders WHERE customer_id = 1 AND 'a'='a',125,2024-05-09 12:57:14,vulnerable,7.9,Medium,Blocked
+452,SELECT * FROM employees WHERE username = 'admin' AND password = 'password' OR '1'='1',162,2024-04-05 19:30:59,highly vulnerable,9.2,High,Blocked
+453,UPDATE users SET password = 'newpass' WHERE username = 'admin',198,2024-04-19 00:00:00,safe,0.3,Low,Allowed
+454,SELECT * FROM users WHERE username = 'admin' AND password = '' OR '1'='1',172,2024-07-15 17:19:50,vulnerable,8.4,Medium,Blocked
+455,SELECT * FROM employees WHERE department = 'HR',125,2024-07-29 15:33:59,safe,0.5,Low,Allowed
+456,SELECT * FROM transactions WHERE amount = 0 UNION SELECT * FROM users,148,2024-06-20 03:03:47,vulnerable,7.8,Medium,Blocked
+457,SELECT * FROM sales WHERE amount > 500,155,2024-01-06 05:43:20,safe,0.2,Low,Allowed
+458,SELECT * FROM accounts WHERE username = 'admin' AND password = 'password' OR 'x'='x',134,2024-06-11 10:21:48,highly vulnerable,9.4,High,Blocked
+459,SELECT * FROM payments WHERE card_number = '1234',153,2024-07-27 09:52:57,vulnerable,7.8,Medium,Blocked
+460,DROP TABLE users; --,152,2024-03-28 03:08:21,highly vulnerable,9.0,High,Blocked
+461,SELECT * FROM products WHERE name = 'product' UNION SELECT * FROM admin_users,187,2024-05-10 07:15:21,highly vulnerable,9.2,High,Blocked
+462,SELECT * FROM orders WHERE order_id = 102,189,2024-03-24 09:49:48,safe,0.2,Low,Allowed
+463,SELECT * FROM logs WHERE action = '' OR '1'='1',172,2024-06-14 00:39:39,vulnerable,7.3,Medium,Blocked
+464,SELECT * FROM users WHERE username = 'admin' AND password = '' OR '1'='1',143,2024-05-17 07:01:12,vulnerable,7.1,Medium,Blocked
+465,UPDATE users SET password = 'newpass' WHERE username = 'admin',146,2024-06-29 10:35:15,safe,0.3,Low,Allowed
+466,"INSERT INTO orders (customer_id, product_id, quantity) VALUES (1, 2, 3)",154,2024-01-24 10:58:10,safe,0.3,Low,Allowed
+467,SELECT * FROM transactions WHERE id = ' OR 'x'='x',107,2024-05-29 23:19:43,highly vulnerable,9.6,High,Blocked
+468,SELECT * FROM products WHERE price < 100,177,2024-01-12 15:31:56,safe,0.4,Low,Allowed
+469,SELECT * FROM users WHERE username = 'admin' AND password = '' OR '1'='1',140,2024-05-14 04:54:55,vulnerable,7.3,Medium,Blocked
+470,SELECT * FROM accounts WHERE account_number = '' OR 'x'='x',192,2024-03-14 02:05:47,vulnerable,8.3,Medium,Blocked
+471,SELECT * FROM products WHERE price = '100' OR '1'='1',160,2024-02-24 14:24:49,vulnerable,7.2,Medium,Blocked
+472,SELECT * FROM accounts WHERE username = 'admin' AND password = 'password' OR 'x'='x',187,2024-05-02 18:26:28,highly vulnerable,9.8,High,Blocked
+473,SELECT * FROM users WHERE id = 1,129,2024-06-25 09:22:01,safe,0.4,Low,Allowed
+474,SELECT * FROM users WHERE id = 1,131,2024-02-21 20:09:38,safe,0.5,Low,Allowed
+475,DROP TABLE users; --,165,2024-03-02 01:55:22,highly vulnerable,9.5,High,Blocked
+476,SELECT * FROM accounts WHERE account_number = '' OR 'x'='x',169,2024-04-17 04:55:08,vulnerable,7.4,Medium,Blocked
+477,SELECT * FROM products WHERE price = '100' OR '1'='1' --,148,2024-05-13 21:58:20,highly vulnerable,9.6,High,Blocked
+478,SELECT * FROM invoices WHERE status = 'Paid',166,2024-08-01 21:04:22,safe,0.5,Low,Allowed
+479,"INSERT INTO orders (customer_id, product_id, quantity) VALUES (1, 2, 3)",139,2024-05-05 13:03:49,safe,0.1,Low,Allowed
+480,SELECT * FROM products WHERE price = '100' OR '1'='1' --,189,2024-02-15 22:39:15,highly vulnerable,9.6,High,Blocked
+481,SELECT * FROM transactions WHERE amount = 0 UNION SELECT * FROM users,112,2024-07-02 21:36:04,vulnerable,7.5,Medium,Blocked
+482,SELECT * FROM payments WHERE card_number = '1234',170,2024-06-27 20:05:37,vulnerable,8.3,Medium,Blocked
+483,"INSERT INTO orders (customer_id, product_id, quantity) VALUES (1, 2, 3)",193,2024-06-24 09:00:08,safe,0.2,Low,Allowed
+484,SELECT * FROM employees WHERE department = 'HR',173,2024-02-24 04:02:40,safe,0.2,Low,Allowed
+485,DELETE FROM users WHERE id = 2,147,2024-03-07 02:30:17,safe,0.4,Low,Allowed
+486,SELECT * FROM invoices WHERE status = 'Paid',156,2024-02-28 08:26:08,safe,0.4,Low,Allowed
+487,SELECT * FROM sales WHERE amount > 500,145,2024-06-12 18:12:44,safe,0.2,Low,Allowed
+488,SELECT * FROM users WHERE email = '' OR 1=1,177,2024-07-05 19:29:32,vulnerable,7.0,Medium,Blocked
+489,SELECT * FROM payments WHERE card_number = '' OR 1=1; --,121,2024-07-17 00:45:11,highly vulnerable,9.8,High,Blocked
+490,SELECT * FROM payments WHERE card_number = '1234',195,2024-06-08 07:26:24,vulnerable,7.8,Medium,Blocked
+491,SELECT * FROM transactions WHERE amount = 0 UNION SELECT * FROM users,127,2024-02-04 15:47:26,vulnerable,7.7,Medium,Blocked
+492,SELECT * FROM orders WHERE order_id = 102 OR 'x'='x',103,2024-03-16 20:20:24,highly vulnerable,9.3,High,Blocked
+493,SELECT * FROM accounts WHERE account_number = '' OR 'x'='x',125,2024-04-05 12:13:28,vulnerable,8.3,Medium,Blocked
+494,SELECT * FROM orders WHERE order_id = 102,174,2024-01-22 02:56:37,safe,0.1,Low,Allowed
+495,SELECT * FROM invoices WHERE status = 'Paid',163,2024-03-12 21:31:15,safe,0.2,Low,Allowed
+496,SELECT * FROM users WHERE id = 1,128,2024-06-05 18:00:57,safe,0.3,Low,Allowed
+497,SELECT * FROM employees WHERE username = 'admin' AND password = 'password',152,2024-01-23 23:01:28,vulnerable,7.3,Medium,Blocked
+498,SELECT * FROM invoices WHERE status = 'Paid',131,2024-06-17 15:51:20,safe,0.2,Low,Allowed
+499,"INSERT INTO orders (customer_id, product_id, quantity) VALUES (1, 2, 3)",158,2024-08-08 11:03:13,safe,0.3,Low,Allowed
+500,DELETE FROM users WHERE id = 2,158,2024-03-20 02:41:49,safe,0.4,Low,Allowed

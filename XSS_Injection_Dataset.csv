@@ -1,0 +1,501 @@
+Input ID,Input Text,User ID,Timestamp,Input Type,Anomaly Score,Risk Level,Detection Outcome
+1,<img src='x' onerror='alert(document.cookie)'>,130,2024-04-19 16:53:25,highly vulnerable,9.5,High,Blocked
+2,<iframe src='javascript:alert('XSS')'></iframe>,111,2024-01-15 17:37:40,vulnerable,7.8,Medium,Blocked
+3,<iframe src='javascript:alert('XSS')'></iframe>,119,2024-08-05 09:27:21,vulnerable,7.8,Medium,Blocked
+4,<i>Italic text</i>,115,2024-05-10 21:02:19,safe,0.5,Low,Allowed
+5,<body onload='alert('XSS')'>,136,2024-03-18 00:42:05,vulnerable,7.7,Medium,Blocked
+6,<iframe src='javascript:alert('XSS')'></iframe>,143,2024-01-28 20:04:09,vulnerable,7.3,Medium,Blocked
+7,<ul><li>List item 1</li><li>List item 2</li></ul>,167,2024-01-24 08:14:15,safe,0.4,Low,Allowed
+8,<svg onload='alert('XSS')'>,145,2024-05-24 05:22:20,vulnerable,7.9,Medium,Blocked
+9,<iframe src='javascript:alert(document.cookie)'></iframe>,124,2024-06-16 13:46:08,highly vulnerable,9.9,High,Blocked
+10,<script>alert('XSS')</script>,197,2024-01-24 08:39:59,vulnerable,8.0,Medium,Blocked
+11,<iframe src='javascript:alert('XSS')'></iframe>,116,2024-07-01 15:34:15,vulnerable,7.5,Medium,Blocked
+12,<audio src='' onerror='alert('XSS')'></audio>,177,2024-07-20 21:01:05,vulnerable,8.3,Medium,Blocked
+13,<p>This is a paragraph</p>,125,2024-03-31 13:06:28,safe,0.1,Low,Allowed
+14,<img src=x onerror=alert(1)>,131,2024-08-18 05:13:23,vulnerable,7.8,Medium,Blocked
+15,<video src='' onerror='alert('XSS')'></video>,180,2024-05-11 16:26:13,vulnerable,7.1,Medium,Blocked
+16,<h1>Header 1</h1>,138,2024-07-30 10:04:19,safe,0.4,Low,Allowed
+17,<body onload='alert('XSS')'>,195,2024-05-18 15:37:04,vulnerable,7.6,Medium,Blocked
+18,<p>This is a paragraph</p>,132,2024-08-16 03:03:11,safe,0.2,Low,Allowed
+19,<svg onload='alert('XSS')'>,142,2024-03-11 17:12:11,vulnerable,7.4,Medium,Blocked
+20,<audio src='x' onerror='alert(document.cookie)'></audio>,198,2024-04-09 20:47:02,highly vulnerable,9.1,High,Blocked
+21,<img src='x' onerror='alert(document.cookie)'>,122,2024-01-21 03:53:09,highly vulnerable,9.9,High,Blocked
+22,<span>Span text</span>,189,2024-07-27 17:53:49,safe,0.3,Low,Allowed
+23,<body onload='alert('XSS')'>,147,2024-03-29 17:01:36,vulnerable,8.1,Medium,Blocked
+24,<script>alert(document.cookie)</script>,134,2024-01-26 06:21:45,highly vulnerable,9.6,High,Blocked
+25,javascript:alert('XSS'),168,2024-05-06 06:39:54,vulnerable,7.3,Medium,Blocked
+26,<iframe src='javascript:alert('XSS')'></iframe>,177,2024-03-27 22:02:48,vulnerable,8.0,Medium,Blocked
+27,<h1>Header 1</h1>,106,2024-08-12 23:32:53,safe,0.1,Low,Allowed
+28,<video src='' onerror='alert('XSS')'></video>,187,2024-04-24 11:46:35,vulnerable,8.4,Medium,Blocked
+29,<div onmouseover='alert('XSS')'>Hover me!</div>,187,2024-03-09 10:38:37,vulnerable,7.8,Medium,Blocked
+30,<h1>Header 1</h1>,183,2024-04-20 09:27:12,safe,0.2,Low,Allowed
+31,<h1>Header 1</h1>,110,2024-07-25 16:37:23,safe,0.3,Low,Allowed
+32,<input type='text' value='' onfocus='alert(document.cookie)'>,146,2024-05-14 00:20:55,highly vulnerable,9.4,High,Blocked
+33,<img src=x onerror=alert(1)>,194,2024-03-16 05:13:54,vulnerable,7.5,Medium,Blocked
+34,<ul><li>List item 1</li><li>List item 2</li></ul>,165,2024-06-05 21:26:18,safe,0.5,Low,Allowed
+35,<div onmouseover='alert('XSS')'>Hover me!</div>,154,2024-02-06 09:19:22,vulnerable,7.6,Medium,Blocked
+36,<body onload='alert(document.cookie)'>,112,2024-07-06 13:34:22,highly vulnerable,9.3,High,Blocked
+37,<img src='x' onerror='alert(document.cookie)'>,103,2024-05-25 20:40:20,highly vulnerable,9.6,High,Blocked
+38,<b>Bold text</b>,154,2024-02-21 02:25:05,safe,0.3,Low,Allowed
+39,<span>Span text</span>,141,2024-03-11 00:21:46,safe,0.3,Low,Allowed
+40,<h1>Header 1</h1>,161,2024-01-26 16:49:39,safe,0.4,Low,Allowed
+41,<div onmouseover='alert('XSS')'>Hover me!</div>,153,2024-03-01 18:08:44,vulnerable,7.4,Medium,Blocked
+42,<div onmouseover='alert('XSS')'>Hover me!</div>,194,2024-06-21 13:21:48,vulnerable,7.0,Medium,Blocked
+43,<input type='text' value='' onfocus='alert('XSS')'>,197,2024-07-28 21:43:00,vulnerable,7.3,Medium,Blocked
+44,<ul><li>List item 1</li><li>List item 2</li></ul>,107,2024-03-20 10:19:00,safe,0.3,Low,Allowed
+45,<audio src='x' onerror='alert(document.cookie)'></audio>,174,2024-04-24 09:10:38,highly vulnerable,9.1,High,Blocked
+46,<video src='x' onerror='alert(document.cookie)'></video>,200,2024-03-29 02:31:53,highly vulnerable,9.8,High,Blocked
+47,<input type='text' value=''>,102,2024-03-08 03:36:08,safe,0.4,Low,Allowed
+48,<img src=x onerror=alert(1)>,142,2024-04-28 14:52:14,vulnerable,7.4,Medium,Blocked
+49,<video src='x' onerror='alert(document.cookie)'></video>,100,2024-06-11 11:28:38,highly vulnerable,9.3,High,Blocked
+50,javascript:alert('XSS'),166,2024-03-15 10:34:51,vulnerable,7.1,Medium,Blocked
+51,<ul><li>List item 1</li><li>List item 2</li></ul>,138,2024-06-21 23:37:09,safe,0.1,Low,Allowed
+52,<input type='text' value=''>,147,2024-07-20 10:53:13,safe,0.3,Low,Allowed
+53,<i>Italic text</i>,133,2024-03-20 20:41:41,safe,0.4,Low,Allowed
+54,<video src='' onerror='alert('XSS')'></video>,157,2024-04-12 02:13:56,vulnerable,8.5,Medium,Blocked
+55,<div onmouseover='alert('XSS')'>Hover me!</div>,146,2024-03-20 20:59:16,vulnerable,8.0,Medium,Blocked
+56,<ul><li>List item 1</li><li>List item 2</li></ul>,139,2024-04-23 17:08:02,safe,0.4,Low,Allowed
+57,<video src='' onerror='alert('XSS')'></video>,105,2024-01-28 17:02:23,vulnerable,7.0,Medium,Blocked
+58,<span>Span text</span>,106,2024-03-14 19:50:32,safe,0.4,Low,Allowed
+59,<ul><li>List item 1</li><li>List item 2</li></ul>,153,2024-03-01 09:29:52,safe,0.2,Low,Allowed
+60,<ul><li>List item 1</li><li>List item 2</li></ul>,161,2024-07-14 02:12:24,safe,0.1,Low,Allowed
+61,<img src='x' onerror='alert(document.cookie)'>,173,2024-04-19 00:00:38,highly vulnerable,9.3,High,Blocked
+62,<a href='javascript:alert(document.cookie)'>Click me</a>,117,2024-04-17 13:53:22,highly vulnerable,9.9,High,Blocked
+63,<ul><li>List item 1</li><li>List item 2</li></ul>,138,2024-06-03 11:09:18,safe,0.4,Low,Allowed
+64,<i>Italic text</i>,170,2024-02-14 14:35:04,safe,0.4,Low,Allowed
+65,<div onmouseover='alert('XSS')'>Hover me!</div>,124,2024-08-13 21:30:14,vulnerable,8.2,Medium,Blocked
+66,javascript:alert('XSS'),187,2024-01-02 06:32:25,vulnerable,7.3,Medium,Blocked
+67,<div>Sample text</div>,194,2024-04-19 21:29:30,safe,0.3,Low,Allowed
+68,<span>Span text</span>,183,2024-05-05 06:49:17,safe,0.5,Low,Allowed
+69,<img src=x onerror=alert(1)>,175,2024-07-29 17:37:26,vulnerable,8.4,Medium,Blocked
+70,<audio src='' onerror='alert('XSS')'></audio>,108,2024-05-23 02:25:31,vulnerable,7.1,Medium,Blocked
+71,<video src='' onerror='alert('XSS')'></video>,112,2024-01-29 14:16:08,vulnerable,7.4,Medium,Blocked
+72,<svg onload='alert('XSS')'>,121,2024-02-02 06:28:04,vulnerable,7.9,Medium,Blocked
+73,<iframe src='javascript:alert(document.cookie)'></iframe>,111,2024-05-03 21:41:14,highly vulnerable,9.7,High,Blocked
+74,javascript:alert('XSS'),145,2024-03-01 19:08:05,vulnerable,7.3,Medium,Blocked
+75,<a href='http://example.com'>Link</a>,164,2024-08-15 22:02:10,safe,0.4,Low,Allowed
+76,<ul><li>List item 1</li><li>List item 2</li></ul>,188,2024-05-22 15:06:16,safe,0.4,Low,Allowed
+77,<iframe src='javascript:alert(document.cookie)'></iframe>,188,2024-04-21 03:41:02,highly vulnerable,9.1,High,Blocked
+78,<svg onload='alert(document.cookie)'></svg>,156,2024-04-26 12:46:21,highly vulnerable,9.1,High,Blocked
+79,<ul><li>List item 1</li><li>List item 2</li></ul>,128,2024-07-01 07:24:45,safe,0.1,Low,Allowed
+80,<ul><li>List item 1</li><li>List item 2</li></ul>,197,2024-07-17 11:27:11,safe,0.4,Low,Allowed
+81,<h1>Header 1</h1>,142,2024-01-14 04:18:13,safe,0.1,Low,Allowed
+82,<p>This is a paragraph</p>,167,2024-02-04 02:12:00,safe,0.4,Low,Allowed
+83,<audio src='' onerror='alert('XSS')'></audio>,136,2024-03-28 22:51:45,vulnerable,8.1,Medium,Blocked
+84,<iframe src='javascript:alert('XSS')'></iframe>,183,2024-02-02 05:44:07,vulnerable,8.1,Medium,Blocked
+85,<img src='image.jpg' alt='Image'>,138,2024-05-07 15:43:09,safe,0.5,Low,Allowed
+86,<div onmouseover='alert('XSS')'>Hover me!</div>,150,2024-06-19 08:46:23,vulnerable,7.7,Medium,Blocked
+87,<div onmouseover='alert('XSS')'>Hover me!</div>,129,2024-07-10 19:21:36,vulnerable,8.1,Medium,Blocked
+88,<ul><li>List item 1</li><li>List item 2</li></ul>,127,2024-06-19 08:22:59,safe,0.2,Low,Allowed
+89,<video src='' onerror='alert('XSS')'></video>,182,2024-02-21 18:09:19,vulnerable,7.1,Medium,Blocked
+90,<p>This is a paragraph</p>,134,2024-07-21 06:21:31,safe,0.4,Low,Allowed
+91,<video src='' onerror='alert('XSS')'></video>,168,2024-07-15 08:16:22,vulnerable,7.0,Medium,Blocked
+92,javascript:alert('XSS'),125,2024-04-19 19:11:33,vulnerable,8.0,Medium,Blocked
+93,<i>Italic text</i>,102,2024-08-18 07:01:03,safe,0.4,Low,Allowed
+94,<script>alert('XSS')</script>,172,2024-01-05 02:06:41,vulnerable,8.5,Medium,Blocked
+95,<div>Sample text</div>,149,2024-04-12 20:11:36,safe,0.4,Low,Allowed
+96,<p>This is a paragraph</p>,151,2024-03-03 10:36:36,safe,0.3,Low,Allowed
+97,<svg onload='alert('XSS')'>,170,2024-01-21 14:19:10,vulnerable,7.7,Medium,Blocked
+98,<input type='text' value=''>,175,2024-04-14 18:44:57,safe,0.4,Low,Allowed
+99,<span>Span text</span>,140,2024-02-02 17:27:03,safe,0.2,Low,Allowed
+100,<img src='image.jpg' alt='Image'>,177,2024-04-12 06:46:42,safe,0.5,Low,Allowed
+101,<p>This is a paragraph</p>,172,2024-06-02 02:26:08,safe,0.3,Low,Allowed
+102,<script>alert(document.cookie)</script>,157,2024-01-10 01:48:21,highly vulnerable,9.3,High,Blocked
+103,<body onload='alert('XSS')'>,126,2024-04-21 23:01:55,vulnerable,7.9,Medium,Blocked
+104,<audio src='x' onerror='alert(document.cookie)'></audio>,105,2024-01-02 21:31:09,highly vulnerable,9.5,High,Blocked
+105,javascript:alert('XSS'),190,2024-01-14 22:14:59,vulnerable,7.4,Medium,Blocked
+106,<audio src='' onerror='alert('XSS')'></audio>,142,2024-07-20 16:01:51,vulnerable,8.4,Medium,Blocked
+107,<span>Span text</span>,149,2024-07-05 06:15:18,safe,0.3,Low,Allowed
+108,<input type='text' value='' onfocus='alert(document.cookie)'>,130,2024-08-16 22:40:38,highly vulnerable,9.2,High,Blocked
+109,<svg onload='alert(document.cookie)'></svg>,140,2024-07-19 23:39:40,highly vulnerable,9.5,High,Blocked
+110,<script>alert('XSS')</script>,194,2024-02-01 03:36:16,vulnerable,7.9,Medium,Blocked
+111,<input type='text' value=''>,104,2024-07-14 02:41:44,safe,0.3,Low,Allowed
+112,<img src='image.jpg' alt='Image'>,110,2024-01-04 17:52:41,safe,0.2,Low,Allowed
+113,<img src=x onerror=alert(1)>,129,2024-02-19 07:22:05,vulnerable,7.3,Medium,Blocked
+114,<p>This is a paragraph</p>,181,2024-06-02 17:10:09,safe,0.4,Low,Allowed
+115,<div>Sample text</div>,137,2024-06-17 11:23:37,safe,0.4,Low,Allowed
+116,<p>This is a paragraph</p>,187,2024-08-17 18:07:46,safe,0.3,Low,Allowed
+117,<script>alert(document.cookie)</script>,155,2024-02-27 05:37:28,highly vulnerable,9.6,High,Blocked
+118,<p>This is a paragraph</p>,157,2024-04-10 06:35:41,safe,0.2,Low,Allowed
+119,<input type='text' value='' onfocus='alert('XSS')'>,135,2024-02-18 10:55:41,vulnerable,7.6,Medium,Blocked
+120,<audio src='' onerror='alert('XSS')'></audio>,167,2024-07-11 10:36:15,vulnerable,7.2,Medium,Blocked
+121,<img src='image.jpg' alt='Image'>,101,2024-05-12 19:48:35,safe,0.2,Low,Allowed
+122,<video src='' onerror='alert('XSS')'></video>,170,2024-02-16 06:10:41,vulnerable,8.2,Medium,Blocked
+123,<input type='text' value=''>,117,2024-01-02 14:01:44,safe,0.2,Low,Allowed
+124,<p>This is a paragraph</p>,127,2024-02-25 15:11:33,safe,0.4,Low,Allowed
+125,<div onmouseover='alert('XSS')'>Hover me!</div>,190,2024-04-24 08:21:41,vulnerable,7.7,Medium,Blocked
+126,<a href='http://example.com'>Link</a>,155,2024-01-19 07:09:20,safe,0.2,Low,Allowed
+127,<iframe src='javascript:alert(document.cookie)'></iframe>,148,2024-08-07 20:43:48,highly vulnerable,9.3,High,Blocked
+128,<h1>Header 1</h1>,130,2024-06-02 18:59:59,safe,0.2,Low,Allowed
+129,<iframe src='javascript:alert('XSS')'></iframe>,110,2024-03-24 13:16:39,vulnerable,7.2,Medium,Blocked
+130,<ul><li>List item 1</li><li>List item 2</li></ul>,111,2024-07-17 01:56:35,safe,0.1,Low,Allowed
+131,<img src=x onerror=alert(1)>,136,2024-07-30 16:46:01,vulnerable,7.0,Medium,Blocked
+132,<svg onload='alert(document.cookie)'></svg>,143,2024-06-25 21:44:54,highly vulnerable,9.8,High,Blocked
+133,<i>Italic text</i>,124,2024-01-31 20:36:43,safe,0.4,Low,Allowed
+134,<iframe src='javascript:alert('XSS')'></iframe>,124,2024-06-23 09:18:28,vulnerable,7.7,Medium,Blocked
+135,<input type='text' value='' onfocus='alert('XSS')'>,186,2024-07-06 07:26:06,vulnerable,7.1,Medium,Blocked
+136,<a href='http://example.com'>Link</a>,199,2024-02-05 21:22:34,safe,0.5,Low,Allowed
+137,<video src='x' onerror='alert(document.cookie)'></video>,110,2024-06-24 16:05:50,highly vulnerable,9.8,High,Blocked
+138,<b>Bold text</b>,182,2024-07-20 03:29:14,safe,0.2,Low,Allowed
+139,<div onmouseover='alert('XSS')'>Hover me!</div>,105,2024-04-28 18:08:39,vulnerable,8.5,Medium,Blocked
+140,<video src='' onerror='alert('XSS')'></video>,176,2024-01-22 11:46:21,vulnerable,8.3,Medium,Blocked
+141,javascript:alert('XSS'),115,2024-03-30 21:18:32,vulnerable,7.2,Medium,Blocked
+142,<audio src='' onerror='alert('XSS')'></audio>,113,2024-01-15 15:44:13,vulnerable,8.3,Medium,Blocked
+143,<img src=x onerror=alert(1)>,139,2024-04-26 10:23:02,vulnerable,7.5,Medium,Blocked
+144,<input type='text' value=''>,148,2024-08-08 12:07:51,safe,0.4,Low,Allowed
+145,<h1>Header 1</h1>,100,2024-01-08 22:36:08,safe,0.4,Low,Allowed
+146,<ul><li>List item 1</li><li>List item 2</li></ul>,110,2024-04-21 02:35:26,safe,0.1,Low,Allowed
+147,<h1>Header 1</h1>,149,2024-01-01 07:24:01,safe,0.2,Low,Allowed
+148,<h1>Header 1</h1>,184,2024-06-15 03:30:44,safe,0.2,Low,Allowed
+149,<video src='' onerror='alert('XSS')'></video>,151,2024-08-25 05:14:10,vulnerable,8.4,Medium,Blocked
+150,<b>Bold text</b>,134,2024-01-13 21:01:36,safe,0.4,Low,Allowed
+151,<b>Bold text</b>,101,2024-06-17 05:15:44,safe,0.3,Low,Allowed
+152,<div>Sample text</div>,153,2024-03-10 04:19:02,safe,0.1,Low,Allowed
+153,<video src='' onerror='alert('XSS')'></video>,143,2024-06-12 16:50:52,vulnerable,7.6,Medium,Blocked
+154,<iframe src='javascript:alert(document.cookie)'></iframe>,178,2024-02-01 20:29:13,highly vulnerable,9.7,High,Blocked
+155,<svg onload='alert('XSS')'>,117,2024-01-03 21:39:42,vulnerable,8.3,Medium,Blocked
+156,<div>Sample text</div>,198,2024-04-27 03:54:34,safe,0.4,Low,Allowed
+157,<svg onload='alert('XSS')'>,161,2024-05-19 17:43:31,vulnerable,7.1,Medium,Blocked
+158,<input type='text' value=''>,120,2024-07-21 23:31:17,safe,0.5,Low,Allowed
+159,<input type='text' value=''>,196,2024-04-18 07:01:58,safe,0.2,Low,Allowed
+160,<script>alert('XSS')</script>,103,2024-02-17 01:00:55,vulnerable,7.5,Medium,Blocked
+161,<input type='text' value=''>,132,2024-07-29 23:05:02,safe,0.2,Low,Allowed
+162,<video src='' onerror='alert('XSS')'></video>,195,2024-01-10 02:58:12,vulnerable,8.4,Medium,Blocked
+163,<i>Italic text</i>,127,2024-06-26 05:56:54,safe,0.5,Low,Allowed
+164,<body onload='alert(document.cookie)'>,200,2024-03-02 22:23:17,highly vulnerable,9.6,High,Blocked
+165,<input type='text' value='' onfocus='alert('XSS')'>,160,2024-04-13 16:42:22,vulnerable,7.6,Medium,Blocked
+166,<i>Italic text</i>,171,2024-03-05 16:54:13,safe,0.1,Low,Allowed
+167,<input type='text' value=''>,180,2024-03-10 19:07:50,safe,0.3,Low,Allowed
+168,<div onmouseover='alert(document.cookie)'>Hover over me</div>,136,2024-08-18 12:10:59,highly vulnerable,9.1,High,Blocked
+169,<input type='text' value='' onfocus='alert('XSS')'>,141,2024-07-01 03:58:43,vulnerable,7.1,Medium,Blocked
+170,<a href='javascript:alert(document.cookie)'>Click me</a>,117,2024-08-11 01:11:48,highly vulnerable,9.5,High,Blocked
+171,<input type='text' value=''>,149,2024-02-29 06:08:08,safe,0.4,Low,Allowed
+172,<p>This is a paragraph</p>,150,2024-04-01 20:32:13,safe,0.3,Low,Allowed
+173,<b>Bold text</b>,162,2024-04-02 03:33:43,safe,0.2,Low,Allowed
+174,<img src='image.jpg' alt='Image'>,135,2024-07-08 19:04:03,safe,0.2,Low,Allowed
+175,<div onmouseover='alert('XSS')'>Hover me!</div>,160,2024-07-18 22:45:25,vulnerable,8.1,Medium,Blocked
+176,<ul><li>List item 1</li><li>List item 2</li></ul>,194,2024-06-11 03:14:34,safe,0.2,Low,Allowed
+177,<p>This is a paragraph</p>,191,2024-08-11 07:40:56,safe,0.1,Low,Allowed
+178,<b>Bold text</b>,138,2024-03-30 04:51:42,safe,0.4,Low,Allowed
+179,<svg onload='alert('XSS')'>,148,2024-03-17 06:03:34,vulnerable,8.5,Medium,Blocked
+180,<b>Bold text</b>,119,2024-03-19 06:06:16,safe,0.3,Low,Allowed
+181,<a href='http://example.com'>Link</a>,138,2024-04-18 09:34:42,safe,0.4,Low,Allowed
+182,<ul><li>List item 1</li><li>List item 2</li></ul>,128,2024-02-17 22:16:41,safe,0.2,Low,Allowed
+183,<input type='text' value='' onfocus='alert('XSS')'>,108,2024-05-23 03:36:48,vulnerable,8.1,Medium,Blocked
+184,<i>Italic text</i>,194,2024-04-11 07:59:54,safe,0.4,Low,Allowed
+185,<audio src='x' onerror='alert(document.cookie)'></audio>,136,2024-03-16 06:31:33,highly vulnerable,9.1,High,Blocked
+186,<h1>Header 1</h1>,160,2024-06-19 06:30:21,safe,0.4,Low,Allowed
+187,<ul><li>List item 1</li><li>List item 2</li></ul>,161,2024-02-09 21:11:10,safe,0.2,Low,Allowed
+188,<b>Bold text</b>,152,2024-02-08 13:13:15,safe,0.5,Low,Allowed
+189,<div onmouseover='alert('XSS')'>Hover me!</div>,150,2024-04-18 07:02:39,vulnerable,7.4,Medium,Blocked
+190,<div>Sample text</div>,163,2024-01-30 20:58:25,safe,0.2,Low,Allowed
+191,<video src='' onerror='alert('XSS')'></video>,190,2024-02-12 17:14:12,vulnerable,8.1,Medium,Blocked
+192,<span>Span text</span>,173,2024-08-01 23:38:13,safe,0.3,Low,Allowed
+193,<svg onload='alert('XSS')'>,186,2024-01-27 14:18:10,vulnerable,7.3,Medium,Blocked
+194,<img src='x' onerror='alert(document.cookie)'>,104,2024-04-19 22:48:59,highly vulnerable,9.5,High,Blocked
+195,<script>alert('XSS')</script>,161,2024-08-10 19:47:59,vulnerable,8.0,Medium,Blocked
+196,<body onload='alert('XSS')'>,128,2024-04-18 11:07:25,vulnerable,7.6,Medium,Blocked
+197,<ul><li>List item 1</li><li>List item 2</li></ul>,182,2024-07-05 00:32:11,safe,0.4,Low,Allowed
+198,javascript:alert('XSS'),138,2024-02-07 13:09:57,vulnerable,8.0,Medium,Blocked
+199,<a href='javascript:alert(document.cookie)'>Click me</a>,164,2024-01-19 00:35:01,highly vulnerable,9.4,High,Blocked
+200,<div onmouseover='alert(document.cookie)'>Hover over me</div>,186,2024-01-11 19:19:15,highly vulnerable,9.3,High,Blocked
+201,<div>Sample text</div>,169,2024-06-04 04:13:05,safe,0.3,Low,Allowed
+202,<div>Sample text</div>,103,2024-03-26 03:26:02,safe,0.4,Low,Allowed
+203,<img src='image.jpg' alt='Image'>,170,2024-05-20 14:56:58,safe,0.3,Low,Allowed
+204,<i>Italic text</i>,108,2024-07-02 19:36:56,safe,0.2,Low,Allowed
+205,<body onload='alert(document.cookie)'>,191,2024-01-06 07:58:12,highly vulnerable,9.0,High,Blocked
+206,<input type='text' value=''>,170,2024-01-17 14:34:18,safe,0.1,Low,Allowed
+207,<video src='' onerror='alert('XSS')'></video>,103,2024-02-08 21:28:52,vulnerable,8.2,Medium,Blocked
+208,<a href='http://example.com'>Link</a>,181,2024-01-30 15:05:28,safe,0.2,Low,Allowed
+209,<img src='x' onerror='alert(document.cookie)'>,123,2024-06-30 11:26:04,highly vulnerable,10.0,High,Blocked
+210,<i>Italic text</i>,135,2024-08-03 11:05:02,safe,0.3,Low,Allowed
+211,<span>Span text</span>,167,2024-04-26 07:49:33,safe,0.1,Low,Allowed
+212,<input type='text' value='' onfocus='alert(document.cookie)'>,112,2024-01-04 18:22:36,highly vulnerable,9.8,High,Blocked
+213,<i>Italic text</i>,141,2024-04-02 05:55:16,safe,0.2,Low,Allowed
+214,<img src=x onerror=alert(1)>,151,2024-06-30 19:23:39,vulnerable,7.6,Medium,Blocked
+215,<audio src='x' onerror='alert(document.cookie)'></audio>,178,2024-06-18 06:02:07,highly vulnerable,9.2,High,Blocked
+216,<h1>Header 1</h1>,168,2024-03-30 01:56:50,safe,0.3,Low,Allowed
+217,<b>Bold text</b>,138,2024-02-13 01:22:10,safe,0.3,Low,Allowed
+218,<svg onload='alert(document.cookie)'></svg>,159,2024-06-26 06:24:31,highly vulnerable,9.8,High,Blocked
+219,<ul><li>List item 1</li><li>List item 2</li></ul>,175,2024-02-14 02:49:12,safe,0.2,Low,Allowed
+220,<img src=x onerror=alert(1)>,190,2024-01-08 18:20:10,vulnerable,7.7,Medium,Blocked
+221,<img src=x onerror=alert(1)>,187,2024-08-02 03:23:45,vulnerable,7.7,Medium,Blocked
+222,<span>Span text</span>,190,2024-03-29 04:33:26,safe,0.2,Low,Allowed
+223,<img src='image.jpg' alt='Image'>,123,2024-01-13 08:54:02,safe,0.3,Low,Allowed
+224,<iframe src='javascript:alert(document.cookie)'></iframe>,160,2024-01-01 18:34:36,highly vulnerable,9.4,High,Blocked
+225,<body onload='alert(document.cookie)'>,175,2024-07-24 19:14:02,highly vulnerable,9.5,High,Blocked
+226,javascript:alert('XSS'),186,2024-06-14 18:54:50,vulnerable,7.0,Medium,Blocked
+227,<script>alert('XSS')</script>,101,2024-03-02 21:40:09,vulnerable,8.4,Medium,Blocked
+228,<input type='text' value='' onfocus='alert('XSS')'>,152,2024-01-07 07:51:05,vulnerable,8.0,Medium,Blocked
+229,<div onmouseover='alert('XSS')'>Hover me!</div>,142,2024-05-01 13:39:29,vulnerable,7.5,Medium,Blocked
+230,<p>This is a paragraph</p>,174,2024-01-08 21:12:18,safe,0.2,Low,Allowed
+231,<a href='http://example.com'>Link</a>,197,2024-02-21 06:43:56,safe,0.1,Low,Allowed
+232,<iframe src='javascript:alert('XSS')'></iframe>,156,2024-02-15 21:49:31,vulnerable,7.9,Medium,Blocked
+233,<input type='text' value=''>,145,2024-08-04 07:41:24,safe,0.3,Low,Allowed
+234,<p>This is a paragraph</p>,131,2024-01-04 23:50:56,safe,0.1,Low,Allowed
+235,<ul><li>List item 1</li><li>List item 2</li></ul>,116,2024-02-29 09:54:04,safe,0.4,Low,Allowed
+236,<p>This is a paragraph</p>,182,2024-08-01 07:36:54,safe,0.4,Low,Allowed
+237,<body onload='alert('XSS')'>,150,2024-06-08 21:11:42,vulnerable,7.1,Medium,Blocked
+238,<video src='' onerror='alert('XSS')'></video>,194,2024-02-28 10:32:29,vulnerable,8.1,Medium,Blocked
+239,<img src=x onerror=alert(1)>,165,2024-01-14 02:39:40,vulnerable,8.2,Medium,Blocked
+240,<script>alert('XSS')</script>,125,2024-03-11 00:36:44,vulnerable,7.9,Medium,Blocked
+241,<a href='javascript:alert(document.cookie)'>Click me</a>,153,2024-06-20 16:44:56,highly vulnerable,9.0,High,Blocked
+242,<a href='http://example.com'>Link</a>,177,2024-05-31 04:44:57,safe,0.5,Low,Allowed
+243,<img src='image.jpg' alt='Image'>,112,2024-06-10 11:02:53,safe,0.3,Low,Allowed
+244,<h1>Header 1</h1>,193,2024-07-26 02:37:03,safe,0.5,Low,Allowed
+245,<div>Sample text</div>,164,2024-07-15 04:35:18,safe,0.2,Low,Allowed
+246,<svg onload='alert('XSS')'>,149,2024-06-01 16:48:31,vulnerable,8.4,Medium,Blocked
+247,<img src=x onerror=alert(1)>,142,2024-05-03 16:51:03,vulnerable,8.1,Medium,Blocked
+248,<b>Bold text</b>,165,2024-05-22 04:23:57,safe,0.3,Low,Allowed
+249,<input type='text' value='' onfocus='alert('XSS')'>,164,2024-07-08 09:27:28,vulnerable,8.5,Medium,Blocked
+250,<img src='image.jpg' alt='Image'>,134,2024-03-20 12:15:37,safe,0.2,Low,Allowed
+251,<svg onload='alert(document.cookie)'></svg>,195,2024-05-18 04:23:08,highly vulnerable,9.0,High,Blocked
+252,<span>Span text</span>,131,2024-05-22 21:40:49,safe,0.3,Low,Allowed
+253,<ul><li>List item 1</li><li>List item 2</li></ul>,152,2024-02-29 15:28:41,safe,0.2,Low,Allowed
+254,<p>This is a paragraph</p>,155,2024-01-07 08:00:26,safe,0.5,Low,Allowed
+255,<script>alert(document.cookie)</script>,172,2024-02-12 01:40:18,highly vulnerable,9.6,High,Blocked
+256,<input type='text' value='' onfocus='alert('XSS')'>,103,2024-05-08 19:04:06,vulnerable,8.3,Medium,Blocked
+257,<script>alert('XSS')</script>,161,2024-04-21 01:33:18,vulnerable,7.7,Medium,Blocked
+258,<b>Bold text</b>,196,2024-08-16 10:29:29,safe,0.1,Low,Allowed
+259,<h1>Header 1</h1>,149,2024-03-15 14:54:38,safe,0.5,Low,Allowed
+260,<iframe src='javascript:alert('XSS')'></iframe>,156,2024-04-18 04:32:25,vulnerable,7.9,Medium,Blocked
+261,<div>Sample text</div>,163,2024-03-03 01:00:13,safe,0.3,Low,Allowed
+262,<b>Bold text</b>,120,2024-05-02 14:39:27,safe,0.4,Low,Allowed
+263,<img src=x onerror=alert(1)>,140,2024-01-17 10:24:44,vulnerable,8.5,Medium,Blocked
+264,<ul><li>List item 1</li><li>List item 2</li></ul>,149,2024-03-09 19:23:09,safe,0.3,Low,Allowed
+265,<svg onload='alert('XSS')'>,199,2024-01-10 01:31:33,vulnerable,7.0,Medium,Blocked
+266,<img src='image.jpg' alt='Image'>,189,2024-06-26 10:22:03,safe,0.3,Low,Allowed
+267,<body onload='alert(document.cookie)'>,135,2024-06-10 11:44:46,highly vulnerable,9.5,High,Blocked
+268,<i>Italic text</i>,151,2024-03-01 06:16:16,safe,0.3,Low,Allowed
+269,<svg onload='alert(document.cookie)'></svg>,119,2024-08-06 20:46:16,highly vulnerable,9.6,High,Blocked
+270,<video src='x' onerror='alert(document.cookie)'></video>,137,2024-04-20 12:51:11,highly vulnerable,9.1,High,Blocked
+271,<iframe src='javascript:alert(document.cookie)'></iframe>,185,2024-02-18 12:52:49,highly vulnerable,10.0,High,Blocked
+272,<ul><li>List item 1</li><li>List item 2</li></ul>,170,2024-04-04 06:17:46,safe,0.4,Low,Allowed
+273,<b>Bold text</b>,187,2024-01-20 05:45:20,safe,0.3,Low,Allowed
+274,<img src='image.jpg' alt='Image'>,174,2024-05-16 09:16:47,safe,0.4,Low,Allowed
+275,<img src='image.jpg' alt='Image'>,129,2024-05-20 14:44:50,safe,0.1,Low,Allowed
+276,<input type='text' value='' onfocus='alert('XSS')'>,125,2024-01-31 12:40:24,vulnerable,8.2,Medium,Blocked
+277,<iframe src='javascript:alert(document.cookie)'></iframe>,173,2024-02-09 04:53:54,highly vulnerable,9.9,High,Blocked
+278,<div onmouseover='alert(document.cookie)'>Hover over me</div>,177,2024-02-23 00:24:08,highly vulnerable,9.8,High,Blocked
+279,<iframe src='javascript:alert('XSS')'></iframe>,129,2024-07-31 23:28:44,vulnerable,8.2,Medium,Blocked
+280,<video src='' onerror='alert('XSS')'></video>,123,2024-02-04 14:20:19,vulnerable,7.9,Medium,Blocked
+281,<img src='image.jpg' alt='Image'>,116,2024-03-12 20:50:00,safe,0.3,Low,Allowed
+282,<div>Sample text</div>,101,2024-07-08 11:07:18,safe,0.3,Low,Allowed
+283,<input type='text' value='' onfocus='alert(document.cookie)'>,192,2024-02-28 02:33:58,highly vulnerable,9.8,High,Blocked
+284,<img src=x onerror=alert(1)>,196,2024-03-18 22:05:00,vulnerable,7.4,Medium,Blocked
+285,<img src='image.jpg' alt='Image'>,196,2024-02-05 10:15:03,safe,0.2,Low,Allowed
+286,<p>This is a paragraph</p>,164,2024-02-02 09:02:18,safe,0.4,Low,Allowed
+287,<script>alert('XSS')</script>,104,2024-02-07 14:20:37,vulnerable,7.2,Medium,Blocked
+288,<svg onload='alert('XSS')'>,169,2024-06-12 02:29:54,vulnerable,7.2,Medium,Blocked
+289,<div onmouseover='alert(document.cookie)'>Hover over me</div>,177,2024-02-16 07:48:22,highly vulnerable,9.5,High,Blocked
+290,<a href='http://example.com'>Link</a>,135,2024-01-19 07:39:31,safe,0.1,Low,Allowed
+291,<span>Span text</span>,173,2024-03-18 19:52:50,safe,0.2,Low,Allowed
+292,<span>Span text</span>,138,2024-07-24 11:04:49,safe,0.5,Low,Allowed
+293,<h1>Header 1</h1>,126,2024-07-06 04:50:18,safe,0.5,Low,Allowed
+294,<input type='text' value=''>,124,2024-02-20 03:20:30,safe,0.3,Low,Allowed
+295,<body onload='alert('XSS')'>,112,2024-04-16 04:30:38,vulnerable,8.4,Medium,Blocked
+296,<input type='text' value='' onfocus='alert('XSS')'>,131,2024-04-29 22:36:39,vulnerable,7.4,Medium,Blocked
+297,<p>This is a paragraph</p>,189,2024-06-08 09:22:24,safe,0.5,Low,Allowed
+298,<div>Sample text</div>,145,2024-03-06 15:07:09,safe,0.5,Low,Allowed
+299,<video src='x' onerror='alert(document.cookie)'></video>,120,2024-01-22 11:48:52,highly vulnerable,9.6,High,Blocked
+300,<p>This is a paragraph</p>,126,2024-06-24 02:07:27,safe,0.2,Low,Allowed
+301,<svg onload='alert('XSS')'>,102,2024-08-05 01:40:12,vulnerable,8.1,Medium,Blocked
+302,<video src='x' onerror='alert(document.cookie)'></video>,118,2024-07-13 03:38:32,highly vulnerable,9.2,High,Blocked
+303,<h1>Header 1</h1>,164,2024-06-04 18:14:46,safe,0.1,Low,Allowed
+304,<audio src='x' onerror='alert(document.cookie)'></audio>,190,2024-08-24 03:02:48,highly vulnerable,9.1,High,Blocked
+305,<i>Italic text</i>,125,2024-06-16 17:57:24,safe,0.5,Low,Allowed
+306,<div>Sample text</div>,109,2024-02-15 12:12:33,safe,0.2,Low,Allowed
+307,<script>alert(document.cookie)</script>,196,2024-02-06 00:26:47,highly vulnerable,9.7,High,Blocked
+308,<a href='javascript:alert(document.cookie)'>Click me</a>,189,2024-01-13 17:59:14,highly vulnerable,9.2,High,Blocked
+309,<video src='x' onerror='alert(document.cookie)'></video>,166,2024-03-05 20:59:18,highly vulnerable,9.8,High,Blocked
+310,<body onload='alert(document.cookie)'>,112,2024-03-23 21:32:08,highly vulnerable,9.8,High,Blocked
+311,<video src='' onerror='alert('XSS')'></video>,129,2024-01-12 11:34:37,vulnerable,8.4,Medium,Blocked
+312,<ul><li>List item 1</li><li>List item 2</li></ul>,148,2024-04-14 03:44:11,safe,0.2,Low,Allowed
+313,<audio src='' onerror='alert('XSS')'></audio>,139,2024-04-13 22:17:00,vulnerable,8.0,Medium,Blocked
+314,<span>Span text</span>,116,2024-06-11 14:48:58,safe,0.4,Low,Allowed
+315,<img src=x onerror=alert(1)>,176,2024-03-24 00:05:46,vulnerable,7.6,Medium,Blocked
+316,<input type='text' value=''>,182,2024-04-02 00:21:15,safe,0.5,Low,Allowed
+317,<div>Sample text</div>,115,2024-03-10 16:07:27,safe,0.1,Low,Allowed
+318,<input type='text' value=''>,138,2024-08-20 10:49:43,safe,0.2,Low,Allowed
+319,<div>Sample text</div>,107,2024-05-10 14:52:51,safe,0.1,Low,Allowed
+320,<span>Span text</span>,200,2024-03-22 12:39:41,safe,0.3,Low,Allowed
+321,<video src='' onerror='alert('XSS')'></video>,145,2024-05-16 13:59:51,vulnerable,7.6,Medium,Blocked
+322,<a href='javascript:alert(document.cookie)'>Click me</a>,107,2024-03-01 07:45:37,highly vulnerable,9.7,High,Blocked
+323,<ul><li>List item 1</li><li>List item 2</li></ul>,130,2024-08-21 02:56:29,safe,0.3,Low,Allowed
+324,<ul><li>List item 1</li><li>List item 2</li></ul>,153,2024-01-20 00:35:17,safe,0.5,Low,Allowed
+325,<input type='text' value=''>,108,2024-04-25 22:25:10,safe,0.5,Low,Allowed
+326,<body onload='alert('XSS')'>,174,2024-06-04 06:45:20,vulnerable,7.7,Medium,Blocked
+327,<body onload='alert('XSS')'>,146,2024-07-15 16:26:32,vulnerable,7.4,Medium,Blocked
+328,<div onmouseover='alert('XSS')'>Hover me!</div>,150,2024-04-09 13:47:00,vulnerable,7.2,Medium,Blocked
+329,<span>Span text</span>,131,2024-05-24 21:43:06,safe,0.1,Low,Allowed
+330,<h1>Header 1</h1>,190,2024-02-11 04:23:43,safe,0.2,Low,Allowed
+331,<input type='text' value='' onfocus='alert(document.cookie)'>,193,2024-05-12 17:36:15,highly vulnerable,9.6,High,Blocked
+332,javascript:alert('XSS'),100,2024-02-06 06:57:58,vulnerable,8.3,Medium,Blocked
+333,<img src='x' onerror='alert(document.cookie)'>,199,2024-01-12 12:39:07,highly vulnerable,9.7,High,Blocked
+334,<script>alert('XSS')</script>,200,2024-08-19 08:26:26,vulnerable,8.4,Medium,Blocked
+335,<div>Sample text</div>,178,2024-01-01 07:10:35,safe,0.4,Low,Allowed
+336,<video src='x' onerror='alert(document.cookie)'></video>,132,2024-07-01 14:34:36,highly vulnerable,9.6,High,Blocked
+337,<a href='http://example.com'>Link</a>,118,2024-06-05 18:58:28,safe,0.3,Low,Allowed
+338,<body onload='alert('XSS')'>,128,2024-07-03 03:04:58,vulnerable,7.1,Medium,Blocked
+339,<ul><li>List item 1</li><li>List item 2</li></ul>,154,2024-05-20 07:53:09,safe,0.3,Low,Allowed
+340,<body onload='alert(document.cookie)'>,115,2024-05-20 12:00:20,highly vulnerable,9.5,High,Blocked
+341,<input type='text' value=''>,102,2024-04-01 14:50:09,safe,0.2,Low,Allowed
+342,<input type='text' value=''>,116,2024-07-19 04:31:09,safe,0.4,Low,Allowed
+343,<img src='image.jpg' alt='Image'>,166,2024-04-06 17:11:20,safe,0.5,Low,Allowed
+344,<div onmouseover='alert('XSS')'>Hover me!</div>,176,2024-01-04 04:18:25,vulnerable,8.4,Medium,Blocked
+345,<svg onload='alert(document.cookie)'></svg>,184,2024-01-16 18:31:00,highly vulnerable,9.7,High,Blocked
+346,<svg onload='alert(document.cookie)'></svg>,178,2024-06-02 11:50:28,highly vulnerable,9.4,High,Blocked
+347,<img src='x' onerror='alert(document.cookie)'>,198,2024-06-03 10:31:41,highly vulnerable,9.9,High,Blocked
+348,<video src='' onerror='alert('XSS')'></video>,106,2024-07-09 15:31:05,vulnerable,7.5,Medium,Blocked
+349,javascript:alert('XSS'),196,2024-06-20 08:05:35,vulnerable,7.9,Medium,Blocked
+350,<span>Span text</span>,108,2024-04-30 06:01:44,safe,0.3,Low,Allowed
+351,<img src='image.jpg' alt='Image'>,185,2024-02-23 22:26:10,safe,0.3,Low,Allowed
+352,<i>Italic text</i>,113,2024-03-12 09:20:20,safe,0.3,Low,Allowed
+353,<iframe src='javascript:alert('XSS')'></iframe>,122,2024-07-28 08:12:55,vulnerable,7.6,Medium,Blocked
+354,<input type='text' value='' onfocus='alert(document.cookie)'>,193,2024-08-14 08:51:27,highly vulnerable,9.0,High,Blocked
+355,<input type='text' value=''>,122,2024-05-09 07:08:23,safe,0.2,Low,Allowed
+356,<b>Bold text</b>,196,2024-07-21 00:35:52,safe,0.4,Low,Allowed
+357,<a href='http://example.com'>Link</a>,153,2024-06-19 04:23:51,safe,0.3,Low,Allowed
+358,<input type='text' value='' onfocus='alert('XSS')'>,140,2024-04-16 11:08:07,vulnerable,7.1,Medium,Blocked
+359,<svg onload='alert(document.cookie)'></svg>,130,2024-07-15 03:43:27,highly vulnerable,9.2,High,Blocked
+360,<a href='http://example.com'>Link</a>,112,2024-06-16 11:01:52,safe,0.3,Low,Allowed
+361,<input type='text' value=''>,179,2024-04-08 12:37:49,safe,0.3,Low,Allowed
+362,<a href='http://example.com'>Link</a>,113,2024-01-09 08:10:59,safe,0.4,Low,Allowed
+363,<iframe src='javascript:alert('XSS')'></iframe>,117,2024-03-18 19:20:34,vulnerable,8.5,Medium,Blocked
+364,<video src='x' onerror='alert(document.cookie)'></video>,140,2024-05-22 22:02:54,highly vulnerable,9.1,High,Blocked
+365,<img src='x' onerror='alert(document.cookie)'>,190,2024-06-10 07:05:37,highly vulnerable,9.2,High,Blocked
+366,<img src=x onerror=alert(1)>,169,2024-02-23 19:41:45,vulnerable,7.4,Medium,Blocked
+367,<iframe src='javascript:alert('XSS')'></iframe>,178,2024-03-03 13:24:01,vulnerable,8.2,Medium,Blocked
+368,<ul><li>List item 1</li><li>List item 2</li></ul>,200,2024-08-20 03:24:09,safe,0.4,Low,Allowed
+369,<video src='x' onerror='alert(document.cookie)'></video>,174,2024-02-23 14:41:20,highly vulnerable,10.0,High,Blocked
+370,<span>Span text</span>,145,2024-02-21 19:43:43,safe,0.3,Low,Allowed
+371,<iframe src='javascript:alert('XSS')'></iframe>,136,2024-01-24 14:55:35,vulnerable,8.1,Medium,Blocked
+372,<body onload='alert(document.cookie)'>,156,2024-06-22 16:16:09,highly vulnerable,9.4,High,Blocked
+373,<script>alert('XSS')</script>,165,2024-05-18 23:07:23,vulnerable,7.6,Medium,Blocked
+374,<audio src='x' onerror='alert(document.cookie)'></audio>,129,2024-07-26 02:24:36,highly vulnerable,9.3,High,Blocked
+375,javascript:alert('XSS'),126,2024-01-23 19:54:32,vulnerable,8.2,Medium,Blocked
+376,<div>Sample text</div>,192,2024-03-15 03:29:07,safe,0.5,Low,Allowed
+377,<body onload='alert('XSS')'>,136,2024-08-12 08:08:18,vulnerable,7.2,Medium,Blocked
+378,<ul><li>List item 1</li><li>List item 2</li></ul>,183,2024-03-07 22:07:49,safe,0.5,Low,Allowed
+379,<a href='http://example.com'>Link</a>,139,2024-01-09 04:47:04,safe,0.2,Low,Allowed
+380,<input type='text' value=''>,142,2024-04-12 01:50:30,safe,0.3,Low,Allowed
+381,<img src=x onerror=alert(1)>,184,2024-05-29 01:03:45,vulnerable,7.7,Medium,Blocked
+382,<div onmouseover='alert(document.cookie)'>Hover over me</div>,198,2024-06-06 08:42:27,highly vulnerable,9.5,High,Blocked
+383,<img src='image.jpg' alt='Image'>,174,2024-01-21 21:31:55,safe,0.2,Low,Allowed
+384,<audio src='' onerror='alert('XSS')'></audio>,163,2024-03-24 03:47:04,vulnerable,8.5,Medium,Blocked
+385,<div onmouseover='alert(document.cookie)'>Hover over me</div>,160,2024-04-28 03:45:42,highly vulnerable,9.4,High,Blocked
+386,<body onload='alert('XSS')'>,163,2024-03-04 19:51:05,vulnerable,7.4,Medium,Blocked
+387,<p>This is a paragraph</p>,135,2024-04-16 07:52:44,safe,0.2,Low,Allowed
+388,<iframe src='javascript:alert('XSS')'></iframe>,191,2024-01-31 22:40:22,vulnerable,7.0,Medium,Blocked
+389,<input type='text' value=''>,167,2024-03-01 03:19:23,safe,0.5,Low,Allowed
+390,<script>alert('XSS')</script>,185,2024-08-16 11:28:34,vulnerable,8.3,Medium,Blocked
+391,javascript:alert('XSS'),176,2024-01-30 20:57:41,vulnerable,8.2,Medium,Blocked
+392,<a href='javascript:alert(document.cookie)'>Click me</a>,188,2024-03-21 17:26:39,highly vulnerable,9.3,High,Blocked
+393,<script>alert('XSS')</script>,110,2024-01-18 20:32:01,vulnerable,7.2,Medium,Blocked
+394,<div onmouseover='alert('XSS')'>Hover me!</div>,156,2024-04-28 10:17:40,vulnerable,7.4,Medium,Blocked
+395,<img src='image.jpg' alt='Image'>,127,2024-02-18 22:46:28,safe,0.1,Low,Allowed
+396,<a href='javascript:alert(document.cookie)'>Click me</a>,134,2024-04-11 18:50:26,highly vulnerable,9.2,High,Blocked
+397,<svg onload='alert('XSS')'>,148,2024-04-21 03:08:16,vulnerable,7.4,Medium,Blocked
+398,<input type='text' value=''>,195,2024-02-10 19:15:32,safe,0.3,Low,Allowed
+399,<iframe src='javascript:alert('XSS')'></iframe>,130,2024-01-31 14:06:25,vulnerable,7.2,Medium,Blocked
+400,<b>Bold text</b>,149,2024-07-31 11:20:58,safe,0.3,Low,Allowed
+401,<audio src='x' onerror='alert(document.cookie)'></audio>,117,2024-06-06 07:48:20,highly vulnerable,9.7,High,Blocked
+402,<input type='text' value='' onfocus='alert('XSS')'>,153,2024-03-08 23:08:04,vulnerable,8.3,Medium,Blocked
+403,<input type='text' value=''>,200,2024-01-10 16:36:30,safe,0.2,Low,Allowed
+404,<audio src='x' onerror='alert(document.cookie)'></audio>,138,2024-02-28 07:21:45,highly vulnerable,9.3,High,Blocked
+405,<img src='image.jpg' alt='Image'>,120,2024-03-15 08:46:46,safe,0.4,Low,Allowed
+406,<body onload='alert(document.cookie)'>,118,2024-04-06 03:01:24,highly vulnerable,10.0,High,Blocked
+407,javascript:alert('XSS'),113,2024-07-17 22:45:26,vulnerable,8.5,Medium,Blocked
+408,<h1>Header 1</h1>,200,2024-06-22 14:15:34,safe,0.2,Low,Allowed
+409,<img src='x' onerror='alert(document.cookie)'>,143,2024-08-12 02:51:39,highly vulnerable,9.2,High,Blocked
+410,<video src='' onerror='alert('XSS')'></video>,119,2024-03-05 10:40:20,vulnerable,7.8,Medium,Blocked
+411,<video src='' onerror='alert('XSS')'></video>,127,2024-03-21 10:18:46,vulnerable,8.2,Medium,Blocked
+412,<body onload='alert(document.cookie)'>,155,2024-01-14 21:42:53,highly vulnerable,10.0,High,Blocked
+413,<i>Italic text</i>,130,2024-08-21 03:10:00,safe,0.3,Low,Allowed
+414,<body onload='alert('XSS')'>,155,2024-01-09 07:38:26,vulnerable,7.9,Medium,Blocked
+415,<span>Span text</span>,181,2024-04-07 17:35:57,safe,0.2,Low,Allowed
+416,<iframe src='javascript:alert('XSS')'></iframe>,127,2024-05-07 12:27:03,vulnerable,7.8,Medium,Blocked
+417,<script>alert(document.cookie)</script>,130,2024-02-29 13:18:46,highly vulnerable,9.7,High,Blocked
+418,<a href='http://example.com'>Link</a>,101,2024-01-17 10:23:11,safe,0.2,Low,Allowed
+419,<script>alert('XSS')</script>,121,2024-02-19 13:51:05,vulnerable,8.4,Medium,Blocked
+420,<span>Span text</span>,103,2024-04-11 02:14:27,safe,0.2,Low,Allowed
+421,<img src='x' onerror='alert(document.cookie)'>,158,2024-03-22 18:59:58,highly vulnerable,9.6,High,Blocked
+422,<span>Span text</span>,174,2024-01-18 05:07:17,safe,0.4,Low,Allowed
+423,<a href='http://example.com'>Link</a>,176,2024-01-02 21:47:08,safe,0.2,Low,Allowed
+424,<div>Sample text</div>,192,2024-01-18 11:58:20,safe,0.2,Low,Allowed
+425,<svg onload='alert(document.cookie)'></svg>,126,2024-05-03 14:48:55,highly vulnerable,9.3,High,Blocked
+426,<img src='image.jpg' alt='Image'>,189,2024-01-24 23:20:03,safe,0.4,Low,Allowed
+427,<span>Span text</span>,100,2024-08-18 10:46:32,safe,0.4,Low,Allowed
+428,<span>Span text</span>,131,2024-07-13 02:34:27,safe,0.4,Low,Allowed
+429,<span>Span text</span>,130,2024-03-27 16:52:28,safe,0.4,Low,Allowed
+430,<svg onload='alert(document.cookie)'></svg>,144,2024-07-16 08:11:52,highly vulnerable,9.2,High,Blocked
+431,<i>Italic text</i>,115,2024-07-27 13:38:35,safe,0.2,Low,Allowed
+432,<span>Span text</span>,162,2024-03-23 14:40:28,safe,0.2,Low,Allowed
+433,<div onmouseover='alert(document.cookie)'>Hover over me</div>,199,2024-05-19 10:55:54,highly vulnerable,9.9,High,Blocked
+434,<p>This is a paragraph</p>,153,2024-03-14 15:02:44,safe,0.5,Low,Allowed
+435,<img src='image.jpg' alt='Image'>,181,2024-07-25 04:11:05,safe,0.3,Low,Allowed
+436,<a href='javascript:alert(document.cookie)'>Click me</a>,143,2024-01-19 23:30:55,highly vulnerable,9.4,High,Blocked
+437,<audio src='' onerror='alert('XSS')'></audio>,153,2024-03-04 18:17:07,vulnerable,7.3,Medium,Blocked
+438,<p>This is a paragraph</p>,121,2024-02-29 15:34:27,safe,0.4,Low,Allowed
+439,<video src='x' onerror='alert(document.cookie)'></video>,193,2024-04-16 20:18:42,highly vulnerable,10.0,High,Blocked
+440,<b>Bold text</b>,101,2024-08-05 07:41:29,safe,0.4,Low,Allowed
+441,<script>alert(document.cookie)</script>,173,2024-02-08 15:04:59,highly vulnerable,9.3,High,Blocked
+442,<input type='text' value=''>,133,2024-01-08 17:47:55,safe,0.2,Low,Allowed
+443,<h1>Header 1</h1>,167,2024-01-29 11:22:25,safe,0.2,Low,Allowed
+444,<svg onload='alert(document.cookie)'></svg>,102,2024-03-12 08:54:14,highly vulnerable,9.9,High,Blocked
+445,<input type='text' value='' onfocus='alert('XSS')'>,188,2024-05-30 08:43:24,vulnerable,7.2,Medium,Blocked
+446,<script>alert('XSS')</script>,194,2024-01-13 05:18:53,vulnerable,8.5,Medium,Blocked
+447,<img src=x onerror=alert(1)>,183,2024-01-23 22:11:29,vulnerable,7.7,Medium,Blocked
+448,<script>alert(document.cookie)</script>,119,2024-07-20 05:38:59,highly vulnerable,9.4,High,Blocked
+449,<iframe src='javascript:alert('XSS')'></iframe>,137,2024-07-18 14:27:57,vulnerable,8.1,Medium,Blocked
+450,<span>Span text</span>,172,2024-06-29 18:21:42,safe,0.3,Low,Allowed
+451,<iframe src='javascript:alert('XSS')'></iframe>,106,2024-05-09 15:18:54,vulnerable,8.3,Medium,Blocked
+452,<input type='text' value=''>,116,2024-03-13 04:25:09,safe,0.3,Low,Allowed
+453,<h1>Header 1</h1>,119,2024-06-15 21:09:32,safe,0.5,Low,Allowed
+454,<img src='image.jpg' alt='Image'>,165,2024-02-07 07:01:32,safe,0.4,Low,Allowed
+455,<b>Bold text</b>,139,2024-04-29 00:28:26,safe,0.1,Low,Allowed
+456,<p>This is a paragraph</p>,195,2024-03-24 03:41:25,safe,0.2,Low,Allowed
+457,<img src='image.jpg' alt='Image'>,187,2024-08-01 00:52:20,safe,0.2,Low,Allowed
+458,<input type='text' value='' onfocus='alert('XSS')'>,186,2024-01-20 23:34:15,vulnerable,7.7,Medium,Blocked
+459,<input type='text' value='' onfocus='alert(document.cookie)'>,162,2024-07-12 00:57:08,highly vulnerable,9.8,High,Blocked
+460,<ul><li>List item 1</li><li>List item 2</li></ul>,171,2024-01-24 10:24:18,safe,0.1,Low,Allowed
+461,<ul><li>List item 1</li><li>List item 2</li></ul>,151,2024-07-12 01:42:44,safe,0.1,Low,Allowed
+462,<input type='text' value='' onfocus='alert('XSS')'>,170,2024-04-08 08:18:00,vulnerable,7.8,Medium,Blocked
+463,<div>Sample text</div>,179,2024-08-05 21:23:32,safe,0.4,Low,Allowed
+464,<input type='text' value='' onfocus='alert('XSS')'>,160,2024-07-11 01:27:47,vulnerable,7.3,Medium,Blocked
+465,<ul><li>List item 1</li><li>List item 2</li></ul>,169,2024-02-02 13:18:41,safe,0.5,Low,Allowed
+466,<div onmouseover='alert(document.cookie)'>Hover over me</div>,131,2024-02-12 14:05:02,highly vulnerable,9.3,High,Blocked
+467,<audio src='' onerror='alert('XSS')'></audio>,108,2024-01-10 08:50:49,vulnerable,7.3,Medium,Blocked
+468,<img src='x' onerror='alert(document.cookie)'>,180,2024-01-05 23:07:09,highly vulnerable,9.4,High,Blocked
+469,<input type='text' value=''>,183,2024-04-19 05:10:39,safe,0.3,Low,Allowed
+470,<input type='text' value=''>,174,2024-04-10 01:47:32,safe,0.1,Low,Allowed
+471,<b>Bold text</b>,117,2024-07-17 05:08:11,safe,0.3,Low,Allowed
+472,<img src='x' onerror='alert(document.cookie)'>,157,2024-02-07 12:53:19,highly vulnerable,9.5,High,Blocked
+473,<img src='x' onerror='alert(document.cookie)'>,161,2024-04-15 01:04:07,highly vulnerable,9.8,High,Blocked
+474,<div>Sample text</div>,117,2024-06-11 04:02:14,safe,0.2,Low,Allowed
+475,<p>This is a paragraph</p>,150,2024-06-23 00:17:24,safe,0.5,Low,Allowed
+476,<b>Bold text</b>,114,2024-01-01 06:21:21,safe,0.2,Low,Allowed
+477,<video src='x' onerror='alert(document.cookie)'></video>,187,2024-05-01 12:40:10,highly vulnerable,9.0,High,Blocked
+478,<img src='image.jpg' alt='Image'>,142,2024-05-12 21:42:48,safe,0.3,Low,Allowed
+479,<svg onload='alert('XSS')'>,122,2024-04-06 18:55:51,vulnerable,8.1,Medium,Blocked
+480,<audio src='' onerror='alert('XSS')'></audio>,170,2024-07-10 08:57:45,vulnerable,8.3,Medium,Blocked
+481,<img src=x onerror=alert(1)>,182,2024-06-15 20:10:06,vulnerable,7.5,Medium,Blocked
+482,<a href='http://example.com'>Link</a>,101,2024-01-20 20:58:53,safe,0.3,Low,Allowed
+483,<audio src='' onerror='alert('XSS')'></audio>,189,2024-05-31 13:23:32,vulnerable,7.6,Medium,Blocked
+484,<img src='image.jpg' alt='Image'>,189,2024-07-27 10:02:36,safe,0.4,Low,Allowed
+485,<i>Italic text</i>,199,2024-07-02 12:30:49,safe,0.3,Low,Allowed
+486,<audio src='x' onerror='alert(document.cookie)'></audio>,159,2024-03-11 15:21:11,highly vulnerable,9.5,High,Blocked
+487,<div onmouseover='alert(document.cookie)'>Hover over me</div>,191,2024-08-21 00:29:06,highly vulnerable,9.4,High,Blocked
+488,<iframe src='javascript:alert('XSS')'></iframe>,102,2024-04-27 14:12:32,vulnerable,7.1,Medium,Blocked
+489,<video src='' onerror='alert('XSS')'></video>,195,2024-01-12 17:24:35,vulnerable,8.0,Medium,Blocked
+490,<img src='image.jpg' alt='Image'>,173,2024-01-17 09:39:33,safe,0.4,Low,Allowed
+491,<div>Sample text</div>,123,2024-04-15 17:36:47,safe,0.2,Low,Allowed
+492,<input type='text' value=''>,194,2024-01-12 17:24:13,safe,0.2,Low,Allowed
+493,<script>alert('XSS')</script>,155,2024-08-22 04:33:14,vulnerable,8.3,Medium,Blocked
+494,<div>Sample text</div>,108,2024-07-13 04:51:23,safe,0.1,Low,Allowed
+495,<script>alert('XSS')</script>,199,2024-06-27 04:57:17,vulnerable,7.1,Medium,Blocked
+496,<i>Italic text</i>,165,2024-01-31 16:13:00,safe,0.3,Low,Allowed
+497,<h1>Header 1</h1>,177,2024-08-13 14:39:27,safe,0.2,Low,Allowed
+498,<svg onload='alert('XSS')'>,178,2024-04-11 07:07:44,vulnerable,7.5,Medium,Blocked
+499,<img src=x onerror=alert(1)>,185,2024-02-26 11:32:10,vulnerable,7.8,Medium,Blocked
+500,<svg onload='alert('XSS')'>,200,2024-07-27 03:19:23,vulnerable,8.2,Medium,Blocked

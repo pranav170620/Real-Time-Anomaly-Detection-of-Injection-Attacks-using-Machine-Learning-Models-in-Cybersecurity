@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Light background for default mode */
+            color: #333333; /* Dark text for default mode */
+        }
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #555555; /* Metallic color for sidebar */
+            padding-top: 20px;
+        }
+        .sidebar a {
+            padding: 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+        }
+        .sidebar a:hover {
+            background-color: #777777;
+        }
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-toggle {
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            background-color: #666666; /* Darker dropdown background */
+            padding-left: 20px;
+        }
+        .dropdown-content li {
+            list-style-type: none;
+        }
+        .dropdown-content a {
+            color: white;
+            text-decoration: none;
+        }
+        .dropdown-content a:hover {
+            background-color: #777777;
+        }
+        .container {
+            margin-left: 270px;
+            padding: 20px;
+        }
+        .header {
+            background-color: #555555; /* Metallic color for header */
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .card, .card-header, .card-body {
+            background-color: #ffffff; /* Light background for cards */
+            color: #333333;
+        }
+        .detection-box {
+            border-left: 5px solid; /* Border for severity */
+            color: inherit; /* Ensure text color inherits from parent */
+            padding: 15px;
+            border-radius: 8px; /* Rounded corners */
+        }
+
+        .detection-box.high-risk {
+            background-color: #ffcccc;
+            border-left-color: #cc0000;
+            color: #cc0000; /* Red text */
+        }
+
+        .detection-box.medium-risk {
+            background-color: #fff4cc;
+            border-left-color: #ffcc00;
+            color: #ffcc00; /* Amber text */
+        }
+
+        .detection-box.low-risk {
+            background-color: #ccffcc;
+            border-left-color: #66cc66;
+            color: #66cc66; /* Green text */
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .header.dark-mode {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+        .sidebar.dark-mode {
+            background-color: #1f1f1f;
+        }
+        .container.dark-mode, .card.dark-mode {
+            background-color: #2b2b2b;
+            color: #ffffff;
+        }
+        .detection-box.dark-mode.high-risk {
+            background-color: #660000;
+            color: #ffcccc;
+        }
+        .detection-box.dark-mode.medium-risk {
+            background-color: #665500;
+            color: #fff4cc;
+        }
+        .detection-box.dark-mode.low-risk {
+            background-color: #003300;
+            color: #ccffcc;
+        }
+
+        /* Loading Spinner Styles */
+        #loading-spinner {
+            display: none;
+            text-align: center;
+        }
+        #loading-spinner img {
+            width: 50px;
+        }
+        /* Notification Styles */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: red;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 9999; /* Ensures it stays on top of other elements */
+            display: none;
+        }
+
+        .notification.critical {
+            background-color: red;
+        }
+        .info-section {
+            background-color: #2c3e50; /* A dark, modern background color */
+            color: #ecf0f1; /* Light text for contrast */
+            border-radius: 10px; /* Rounded corners for a modern look */
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        }
+
+        .info-section h2 {
+            color: #e74c3c; /* Highlighted color for headers */
+            margin-bottom: 20px;
+        }
+
+        .info-section p {
+            font-size: 18px; /* Larger text for readability */
+            line-height: 1.6; /* Better spacing between lines */
+        }
+
+        .info-section .highlight {
+            color: #f1c40f; /* Use of a yellow color for emphasis */
+            font-weight: bold;
+        }
+
+        .info-section .important {
+            color: #e74c3c; /* Red for important notes or warnings */
+            font-weight: bold;
+        }
+
+        .info-section .button {
+            background-color: #e74c3c;
+            color: #ecf0f1;
+            padding: 10px 20px;
+            text-align: center;
+            display: inline-block;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        .info-section .button:hover {
+            background-color: #c0392b; /* Darken button on hover */
+        }
+
+        .info-section .icon {
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .info-section .divider {
+            height: 2px;
+            background-color: #f1c40f;
+            margin: 20px 0;
+            border-radius: 2px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .button-container .button {
+            width: 48%; /* Adjust the width of each button to fit side by side */
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>Cybersecurity Anomaly Detection Dashboard</h1>
+    <p>Protecting Your Data Against SQL and XSS Injection Attacks!</p>
+</div>
+
+<div class="sidebar">
+    <a href="#" onclick="showSection('home')">Home</a>
+    <div class="dropdown">
+        <a href="#" class="dropdown-toggle" onclick="toggleDropdown('sql-dropdown')">SQL Injection Analysis</a>
+        <ul id="sql-dropdown" class="dropdown-content">
+            <li><a href="#" onclick="showSection('sql-anomaly-reports')">Anomaly Reports</a></li>
+            <li><a href="#" onclick="showSection('sql-historical-data')">Historical Data</a></li>
+        </ul>
+    </div>
+    <div class="dropdown">
+        <a href="#" class="dropdown-toggle" onclick="toggleDropdown('xss-dropdown')">XSS Injection Analysis</a>
+        <ul id="xss-dropdown" class="dropdown-content">
+            <li><a href="#" onclick="showSection('xss-anomaly-reports')">Anomaly Reports</a></li>
+            <li><a href="#" onclick="showSection('xss-historical-data')">Historical Data</a></li>
+        </ul>
+    </div>
+    <a href="#" onclick="showSection('settings')">Settings</a>
+
+</div>
+
+<div class="container">
+    <div id="home" class="content">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Enter SQL/XSS Query for Analysis</h2>
+                <form id="queryForm">
+                    <div class="mb-3">
+                        <label for="queryText" class="form-label">Enter SQL or XSS Query:</label>
+                        <input type="text" id="queryText" name="queryText" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Detect</button>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        Risk Distribution
+                    </div>
+                    <div class="card-body">
+                        <!-- Loading Spinner -->
+                        <div id="loading-spinner">
+                            <img src="spinner.gif" alt="Loading..." />
+                        </div>
+                        <canvas id="riskDistributionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="alert mt-4" id="detection-result" style="display:none;">
+            <div id="detection-box" class="detection-box">
+                <h2 class="alert-heading">Detection Results:</h2>
+                <p><strong>Risk Level:</strong> <span id="risk-level"></span></p>
+                <p><strong>Consequence:</strong> <span id="consequence"></span></p>
+                <p><strong>Insight:</strong> <span id="insight"></span></p>
+            </div>
+        </div>
+        <div class="info-section">
+            <h2>How Can This Dashboard Help You?</h2>
+            <p>
+                Worried about the safety of a query? This dashboard is here to help! Simply enter the SQL or XSS query you want to check, and our system will analyze it to determine if it's <span class="highlight">potentially harmful</span>.
+                If the query looks suspicious or dangerous, we'll let you know by indicating the risk level. This way, you can protect your data and prevent potential attacks before they happen.
+                Stay secure by checking your queries here first!
+            </p>
+            <div class="divider"></div>
+            <p>
+                <span class="important">Important:</span> Always double-check your queries, especially when handling sensitive data.
+                Prevention is the best defense against cyber attacks!
+            </p>
+            <div class="button-container">
+                <a href="https://owasp.org/www-community/attacks/SQL_Injection" target="_blank" class="button">Learn More About SQL Injection</a>
+                <a href="https://owasp.org/www-community/attacks/xss/" target="_blank" class="button">Learn More About XSS Injection</a>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- SQL Injection Analysis Sections -->
+    <div id="sql-anomaly-reports" class="content" style="display: none;">
+        <h2>SQL Injection Anomaly Reports</h2>
+        <canvas id="sqlAnomalyReportsChart"></canvas>
+    </div>
+
+    <div id="sql-historical-data" class="content" style="display: none;">
+        <h2>SQL Injection Historical Data</h2>
+        <canvas id="sqlHistoricalDataChart"></canvas>
+    </div>
+
+    <!-- XSS Injection Analysis Sections -->
+    <div id="xss-anomaly-reports" class="content" style="display: none;">
+        <h2>XSS Injection Anomaly Reports</h2>
+        <canvas id="xssAnomalyReportsChart"></canvas>
+    </div>
+
+    <div id="xss-historical-data" class="content" style="display: none;">
+        <h2>XSS Injection Historical Data</h2>
+        <canvas id="xssHistoricalDataChart"></canvas>
+    </div>
+
+    <!-- System Performance and Recent Alerts -->
+    <div id="settings" class="content" style="display: none;">
+        <div class="card mb-4">
+            <div class="card-header">
+                System Performance and Health
+            </div>
+            <div class="card-body">
+                <p>CPU Usage: <span id="cpu-usage"></span>%</p>
+                <p>Memory Usage: <span id="memory-usage"></span>%</p>
+                <p>Detection Accuracy: <span id="detection-accuracy"></span>%</p>
+            </div>
+
+            <!-- Spacer Div to create gap -->
+            <div style="height: 20px;"></div>
+
+            <div class="card mb-4" style="margin-bottom: 20px;">
+                <div class="card-header">
+                    Settings
+                </div>
+                <div class="card-body">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
+                        <label class="form-check-label" for="darkModeToggle">Enable Dark Mode</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Alerts and Activity -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    Recent Alerts and Activity
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>Type</th>
+                            <th>Severity</th>
+                            <th>Action Taken</th>
+                        </tr>
+                        </thead>
+                        <tbody id="alertTableBody">
+                        <!-- Alerts will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="input-group mb-3">
+                <input type="text" id="searchBar" class="form-control" placeholder="Search alerts or logs">
+                <button class="btn btn-outline-secondary" onclick="filterAlerts()">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Div -->
+    <div class="notification" id="notification"></div>
+</div>
+
+
+<script>
+    // Initialize Socket.IO
+    const socket = io();
+
+    // Update SQL and XSS Historical Data in Real-Time
+    socket.on('update_historical_data', function(data) {
+        updateHistoricalChart('sqlHistoricalDataChart', data.sql_historical_data, 'SQL Injection Anomalies Detected', '#36a2eb');
+        updateHistoricalChart('xssHistoricalDataChart', data.xss_historical_data, 'XSS Injection Anomalies Detected', '#ff6384');
+    });
+
+    function updateHistoricalChart(chartId, dataValues, label, borderColor) {
+        const ctx = document.getElementById(chartId).getContext('2d');
+        const chart = Chart.getChart(chartId); // Retrieve existing chart instance
+        if (chart) {
+            chart.data.labels.push(new Date().toLocaleString()); // Add the current date and time as a label
+            chart.data.datasets[0].data = dataValues;
+            chart.update();
+        } else {
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: Array.from({ length: dataValues.length }, (_, i) => new Date().toLocaleString()), // Generate labels with date and time
+                    datasets: [{
+                        label: label,
+                        data: dataValues,
+                        borderColor: borderColor,
+                        fill: false,
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            type: 'time',
+                            time: {
+                                unit: 'minute', // You can change this to 'hour' or 'day' depending on your data granularity
+                                tooltipFormat: 'MMM D, YYYY, h:mm:ss a', // Format for the tooltip
+                                displayFormats: {
+                                    'minute': 'MMM D, YYYY, h:mm:ss a', // Format for the X-axis labels
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Date and Time',
+                                color: '#ffffff', // Adjust color as needed
+                            },
+                            ticks: {
+                                color: '#ffffff', // Adjust color as needed
+                            },
+                        },
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Number of Anomalies',
+                                color: '#ffffff', // Adjust color as needed
+                            },
+                            ticks: {
+                                color: '#ffffff', // Adjust color as needed
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+
+
+
+
+    // Handle real-time data updates
+    socket.on('update_data', function(data) {
+        document.getElementById('sql-injections').innerText = data.sql_injection_count;
+        document.getElementById('xss-attacks').innerText = data.xss_injection_count;
+    });
+
+    // Handle critical alerts
+    socket.on('alert', function(data) {
+        notifyUser(data.message, data.severity);
+    });
+
+    function displayCriticalAlert(message) {
+        const alertMessageElement = document.getElementById('criticalAlertMessage');
+        alertMessageElement.innerText = message;
+
+        // Trigger the modal to display the alert
+        const criticalAlertModal = new bootstrap.Modal(document.getElementById('criticalAlertModal'));
+        criticalAlertModal.show();
+    }
+
+    function notifyUser(message, severity) {
+        const notification = document.getElementById('notification');
+        notification.className = `notification ${severity}`;
+        notification.innerText = message;
+        notification.style.display = 'block';
+
+        setTimeout(() => {
+            notification.style.display = 'none';
+        }, 5000);
+    }
+
+    function toggleDropdown(dropdownId) {
+        const dropdown = document.getElementById(dropdownId);
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    function showSection(sectionId) {
+        // Hide all sections
+        document.querySelectorAll('.content').forEach(section => {
+            section.style.display = 'none';
+        });
+
+        // Show the selected section
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.style.display = 'block';
+            // Load historical charts if the section is selected
+            if (sectionId === 'sql-historical-data' || sectionId === 'xss-historical-data') {
+                // Fetch the latest data and update the charts
+                updateRiskDistribution();
+            }
+        }
+    }
+
+    // Function to display an error message
+    function displayError(message) {
+        alert(message);  // Simple alert, you can replace this with a more sophisticated modal or UI element.
+    }
+
+    // Initialize the risk distribution chart
+    let riskDistributionChart;
+
+    function initializeRiskDistributionChart() {
+        const ctx = document.getElementById('riskDistributionChart').getContext('2d');
+        riskDistributionChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'SQL Injection',
+                    data: [],
+                    borderColor: '#36a2eb',
+                    fill: false,
+                }, {
+                    label: 'XSS Injection',
+                    data: [],
+                    borderColor: '#ff6384',
+                    fill: false,
+                }]
+            }
+        });
+    }
+
+    // Fetch and display the Risk Distribution chart
+    function updateRiskDistribution() {
+        fetch('/risk_distribution_data')
+            .then(response => response.json())
+            .then(data => {
+                // Update the chart with new data
+                riskDistributionChart.data.datasets[0].data.push(data.sql_count);
+                riskDistributionChart.data.datasets[1].data.push(data.xss_count);
+                riskDistributionChart.update();
+            })
+            .catch(error => console.error('Error fetching risk distribution data:', error));
+    }
+
+    // Handle chart updates
+    socket.on('update_chart', function(data) {
+        const timeFormatted = data.timestamp;  // Now already formatted from the server
+        riskDistributionChart.data.labels.push(timeFormatted);
+        riskDistributionChart.data.datasets[0].data.push(data.sql_count);
+        riskDistributionChart.data.datasets[1].data.push(data.xss_count);
+        riskDistributionChart.update();
+    });
+
+
+    // Fetch and display SQL Injection Anomaly Reports
+    fetch('/sql_anomaly_reports_data')
+        .then(response => response.json())
+        .then(data => {
+            var ctx = document.getElementById('sqlAnomalyReportsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: data.labels,
+                    datasets: [{
+                        label: 'Risk Levels',
+                        data: data.values,
+                        backgroundColor: ['#36a2eb', '#ffcd56', '#ff6384'] // Low: Blue, Medium: Yellow, High: Red
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            labels: {
+                                color: 'rgb(255, 99, 132)',
+                                generateLabels: function(chart) {
+                                    return [
+                                        { text: 'Low Risk', fillStyle: '#36a2eb' },
+                                        { text: 'Medium Risk', fillStyle: '#ffcd56' },
+                                        { text: 'High Risk', fillStyle: '#ff6384' }
+                                    ];
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        })
+        .catch(error => console.error('Error fetching SQL anomaly reports data:', error));
+
+    // Fetch and display XSS Injection Anomaly Reports
+    fetch('/xss_anomaly_reports_data')
+        .then(response => response.json())
+        .then(data => {
+            var ctx = document.getElementById('xssAnomalyReportsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: data.labels,
+                    datasets: [{
+                        label: 'Risk Levels',
+                        data: data.values,
+                        backgroundColor: ['#36a2eb', '#ffcd56', '#ff6384'] // Low: Blue, Medium: Yellow, High: Red
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            labels: {
+                                color: 'rgb(255, 99, 132)',
+                                generateLabels: function(chart) {
+                                    return [
+                                        { text: 'Low Risk', fillStyle: '#36a2eb' },
+                                        { text: 'Medium Risk', fillStyle: '#ffcd56' },
+                                        { text: 'High Risk', fillStyle: '#ff6384' }
+                                    ];
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        })
+        .catch(error => console.error('Error fetching XSS anomaly reports data:', error));
+
+
+    function renderChart(chartId, dataLabels, dataValues, label, borderColor) {
+        var ctx = document.getElementById(chartId).getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: dataLabels,
+                datasets: [{
+                    label: label,
+                    data: dataValues,
+                    borderColor: borderColor,
+                    fill: false,
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+
+    fetch('/sql_historical_data')
+        .then(response => response.json())
+        .then(data => {
+            const labels = data.labels.map(label => new Date(label).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+            renderChart('sqlHistoricalDataChart', labels, data.values, 'SQL Injection Anomalies Detected', '#36a2eb');
+        })
+        .catch(error => console.error('Error fetching SQL historical data:', error));
+
+    fetch('/xss_historical_data')
+        .then(response => response.json())
+        .then(data => {
+            const labels = data.labels.map(label => new Date(label).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+            renderChart('xssHistoricalDataChart', labels, data.values, 'XSS Injection Anomalies Detected', '#ff6384');
+        })
+        .catch(error => console.error('Error fetching XSS historical data:', error));
+
+
+
+    // Fetch and display Recent Alerts
+    function updateRecentAlerts() {
+        fetch('/recent_alerts')
+            .then(response => response.json())
+            .then(data => {
+                const tbody = document.getElementById('alertTableBody');
+                tbody.innerHTML = ''; // Clear the table before adding new alerts
+                data.forEach(alert => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${new Date(alert.timestamp).toLocaleString()}</td>
+                        <td>${alert.type}</td>
+                        <td>${alert.severity}</td>
+                        <td>${alert.action}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error fetching recent alerts:', error));
+    }
+
+    // Fetch and display System Performance and Health
+    function updateSystemPerformance() {
+        fetch('/system_performance')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('cpu-usage').innerText = data.cpu_usage;
+                document.getElementById('memory-usage').innerText = data.memory_usage;
+                document.getElementById('detection-accuracy').innerText = data.detection_accuracy;
+            })
+            .catch(error => console.error('Error fetching system performance:', error));
+    }
+
+    // Update system performance every 5 seconds
+    setInterval(updateSystemPerformance, 5000);
+    updateSystemPerformance();  // Initial call
+
+    // Filter Alerts
+    function filterAlerts() {
+        const searchTerm = document.getElementById('searchBar').value.toLowerCase();
+        const rows = document.querySelectorAll('#alertTableBody tr');
+        rows.forEach(row => {
+            const cells = row.getElementsByTagName('td');
+            let matches = false;
+            for (let i = 0; i < cells.length; i++) {
+                if (cells[i].innerText.toLowerCase().includes(searchTerm)) {
+                    matches = true;
+                    break;
+                }
+            }
+            row.style.display = matches ? '' : 'none';
+        });
+    }
+
+    // Dark Mode Toggle
+    function toggleDarkMode() {
+        const isDarkMode = document.getElementById('darkModeToggle').checked;
+        document.body.classList.toggle('dark-mode', isDarkMode);
+        document.querySelector('.header').classList.toggle('dark-mode', isDarkMode);
+        document.querySelector('.sidebar').classList.toggle('dark-mode', isDarkMode);
+        document.querySelector('.container').classList.toggle('dark-mode', isDarkMode);
+        document.querySelectorAll('.card').forEach(card => card.classList.toggle('dark-mode', isDarkMode));
+
+        // Update the detection box mode
+        const detectionBox = document.getElementById('detection-box');
+        detectionBox.classList.toggle('dark-mode', isDarkMode);
+    }
+
+    // Submit form and update charts/alerts
+    document.getElementById('queryForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const queryText = document.getElementById('queryText').value;
+
+        fetch('/predict', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ queryText: queryText })
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Update detection results
+                document.getElementById('risk-level').innerText = data['Risk Level'];
+                document.getElementById('consequence').innerText = data.Consequence;
+                document.getElementById('insight').innerText = data.Insight;
+
+                const detectionBox = document.getElementById('detection-box');
+                const resultDiv = document.getElementById('detection-result');
+                resultDiv.style.display = 'block';
+                detectionBox.classList.remove('high-risk', 'medium-risk', 'low-risk', 'dark-mode');
+
+
+                // Determine risk level and apply appropriate styles
+                if (data['Risk Level'] === 'High') {
+                    detectionBox.classList.add('high-risk');
+
+                    // Determine the attack type and show the appropriate alert message
+                    if (data['Attack Type'] === 'SQL') {
+                        notifyUser('Critical SQL attack detected!!!!', 'critical');
+                    } else if (data['Attack Type'] === 'XSS') {
+                        notifyUser('Critical XSS attack detected!!!!', 'critical');
+                    }
+                } else if (data['Risk Level'] === 'Medium') {
+                    detectionBox.classList.add('medium-risk');
+                } else {
+                    detectionBox.classList.add('low-risk');
+                }
+
+
+                if (document.getElementById('darkModeToggle').checked) {
+                    detectionBox.classList.add('dark-mode');
+                }
+
+
+                updateRecentAlerts();
+                updateRiskDistribution();
+            })
+            .catch(error => displayError('Error during prediction: ' + error.message));
+    });
+
+    // Initialize charts and data when the page loads
+    document.addEventListener('DOMContentLoaded', (event) => {
+        initializeRiskDistributionChart();
+        updateRiskDistribution();  // Load initial data
+        updateRecentAlerts();      // Load initial alerts
+    });
+
+</script>
+</body>
+</html>
+

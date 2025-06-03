@@ -1,0 +1,202 @@
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; /* Default white background */
+    color: #333333; /* Dark text */
+    margin: 0;
+    padding: 0;
+}
+
+
+body.dark-mode {
+    background-color: #121212; /* Metallic black background */
+    color: #ffffff; /* White text */
+}
+
+
+/* Container for central content */
+.container {
+    width: 50%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff; /* Light background for container */
+    color: #333333; /* Dark text in container */
+    box-shadow: 0px 0px 10px 0px #aaaaaa; /* Lighter shadow for container */
+    border-radius: 8px; /* Smooth corners */
+}
+
+/* Heading styles */
+h1 {
+    text-align: center;
+    color: #333333; /* Dark text for headings */
+}
+
+/* Label styles */
+label {
+    font-weight: bold;
+    color: #555555; /* Darker grey for labels */
+}
+
+/* Input field styles */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    background-color: #eaeaea; /* Light grey background for input fields */
+    color: #333333; /* Dark text */
+    border: 1px solid #cccccc; /* Light border for input fields */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Button styles */
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #28a745; /* Green button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #218838; /* Slightly darker green on hover */
+}
+
+/* Results container styles */
+.results {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #cccccc; /* Light border for results */
+    background-color: #f9f9f9; /* Light background for results */
+    border-radius: 8px; /* Smooth corners */
+}
+
+/* Results heading styles */
+.results h2 {
+    color: #36a2eb; /* Light blue for result headings */
+}
+
+
+/* Sidebar styles */
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #333333; /* Metallic color for sidebar */
+    padding-top: 20px;
+}
+
+.sidebar a {
+    padding: 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+}
+
+.sidebar a:hover {
+    background-color: #575757; /* Slightly lighter on hover */
+}
+
+
+
+/* Dropdown menu styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    background-color: #666666; /* Dark background for dropdown */
+    padding-left: 20px;
+}
+
+.dropdown-content li {
+    list-style-type: none;
+}
+
+.dropdown-content a {
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #777777; /* Slightly lighter on hover */
+}
+
+/* Card styles */
+.card, .card-header, .card-body {
+    background-color: #ffffff; /* Light background for cards */
+    color: #333333; /* Dark text */
+}
+
+/* Detection box styles */
+.detection-box {
+    padding: 15px;
+    border-left: 5px solid #ff6666; /* Red border for severity */
+    border-radius: 8px; /* Rounded corners */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Specific colors for severity */
+.high-risk {
+    background-color: #ffcccc;
+    border-left-color: #cc0000;
+}
+
+.medium-risk {
+    background-color: #fff4cc;
+    border-left-color: #ffcc00;
+}
+
+.low-risk {
+    background-color: #ccffcc;
+    border-left-color: #66cc66;
+}
+
+
+.detection-box .alert-heading {
+    font-size: 24px;
+}
+
+.detection-box p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.detection-box strong {
+    color: #333333; /* Darker text for emphasis */
+}
+
+/* Header styles */
+.header {
+    background-color: #555555; /* Metallic header */
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Header dark mode */
+.header.dark-mode {
+    background-color: #333333; /* Even darker for dark mode */
+}
+
+/* Styles for system performance and health */
+.card-body p {
+    margin: 0;
+    padding: 5px 0;
+}
+
+.card-body span {
+    font-weight: bold;
+}
